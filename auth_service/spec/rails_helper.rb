@@ -64,6 +64,10 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include FactoryBot::Syntax::Methods
+  
+  SimpleCov.start do
+    add_filter '/spec/'
+  end
 
   def json_response
     JSON.parse(response.body)
