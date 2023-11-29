@@ -12315,3 +12315,217 @@ Processing by ProductsController#destroy as HTML
 Filter chain halted as :set_product rendered or redirected
 Completed 404 Not Found in 2ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 363)
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by ProductsController#create as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 403 Forbidden in 3ms (Views: 3.1ms | ActiveRecord: 0.0ms | Allocations: 1034)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (1.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Rustic Steel Coat"], ["description", "Garden\nBrand: Nike\nMaterial: Plastic"], ["price", 7.0], ["created_at", "2023-11-29 10:24:26.417058"], ["updated_at", "2023-11-29 10:24:26.417058"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Rustic Granite Knife"], ["description", "Jewelry, Tools & Movies\nBrand: Nikon\nMaterial: Wooden"], ["price", 34.84], ["created_at", "2023-11-29 10:24:26.422639"], ["updated_at", "2023-11-29 10:24:26.422639"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Synergistic Paper Chair"], ["description", "Books\nBrand: Beats\nMaterial: Rubber"], ["price", 52.38], ["created_at", "2023-11-29 10:24:26.425068"], ["updated_at", "2023-11-29 10:24:26.425068"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Sleek Iron Table"], ["description", "Garden & Health\nBrand: LG\nMaterial: Paper"], ["price", 32.15], ["created_at", "2023-11-29 10:24:26.426864"], ["updated_at", "2023-11-29 10:24:26.426864"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Fantastic Linen Watch"], ["description", "Games, Clothing & Jewelry\nBrand: Sony\nMaterial: Marble"], ["price", 50.77], ["created_at", "2023-11-29 10:24:26.428696"], ["updated_at", "2023-11-29 10:24:26.428696"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/products" for 127.0.0.1 at 2023-11-29 15:54:26 +0530
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 1], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 2], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 3], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 4], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 5], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (6.69ms)
+Completed 200 OK in 24ms (Views: 22.9ms | ActiveRecord: 0.9ms | Allocations: 5812)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/products" for 127.0.0.1 at 2023-11-29 15:54:26 +0530
+Processing by ProductsController#create as HTML
+  Parameters: {"name"=>"Intelligent Linen Chair", "description"=>"Electronics & Clothing\nBrand: GoPro\nMaterial: Linen", "price"=>"7.13"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Intelligent Linen Chair"], ["description", "Electronics & Clothing\nBrand: GoPro\nMaterial: Linen"], ["price", 7.13], ["created_at", "2023-11-29 10:24:26.466753"], ["updated_at", "2023-11-29 10:24:26.466753"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 1], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers] Rendered ProductSerializer with ActiveModelSerializers::Adapter::Attributes (1.13ms)
+Completed 201 Created in 4ms (Views: 1.4ms | ActiveRecord: 0.5ms | Allocations: 1675)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/products" for 127.0.0.1 at 2023-11-29 15:54:26 +0530
+Processing by ProductsController#create as HTML
+  Parameters: {"name"=>"Lightweight Leather Lamp", "description"=>"Music, Beauty & Industrial\nBrand: Apple\nMaterial: Paper", "price"=>"52.69", "images"=>[#<ActionDispatch::Http::UploadedFile:0x0000000110140378 @tempfile=#<Tempfile:/var/folders/g2/yc978xgj5217w5yk09l8l_s80000gp/T/RackMultipart20231129-39091-m6tw1e.png>, @content_type="image/png", @original_filename="image.png", @headers="content-disposition: form-data; name=\"images[]\"; filename=\"image.png\"\r\ncontent-type: image/png\r\ncontent-length: 153410\r\n">]}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Lightweight Leather Lamp"], ["description", "Music, Beauty & Industrial\nBrand: Apple\nMaterial: Paper"], ["price", 52.69], ["created_at", "2023-11-29 10:24:26.522923"], ["updated_at", "2023-11-29 10:24:26.522923"]]
+  [1m[36mActiveStorage::Blob Create (0.5ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["key", "ax4wfhun6cojoc23ifbtr487tpky"], ["filename", "image.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["service_name", "test"], ["byte_size", 153410], ["checksum", "4c9NqZvVxsXcDZwAwSJPpA=="], ["created_at", "2023-11-29 10:24:26.524817"]]
+  [1m[36mActiveStorage::Attachment Create (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "images"], ["record_type", "Product"], ["record_id", 1], ["blob_id", 1], ["created_at", "2023-11-29 10:24:26.526020"]]
+  [1m[36mProduct Update (0.1ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = ? WHERE "products"."id" = ?[0m  [["updated_at", "2023-11-29 10:24:26.526724"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[36m  Disk Storage (1.4ms) [0m[32mUploaded file to key: ax4wfhun6cojoc23ifbtr487tpky (checksum: 4c9NqZvVxsXcDZwAwSJPpA==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 07df692b-c67e-4a22-8e31-aca78e4268c2) to Test(default) with arguments: #<GlobalID:0x0000000110427ca8 @uri=#<URI::GID gid://product-service/ActiveStorage::Blob/1>>
+[active_model_serializers] Rendered ProductSerializer with ActiveModelSerializers::Adapter::Attributes (1.0ms)
+Completed 201 Created in 55ms (Views: 1.3ms | ActiveRecord: 1.8ms | Allocations: 22654)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/products" for 127.0.0.1 at 2023-11-29 15:54:26 +0530
+Processing by ProductsController#create as HTML
+  Parameters: {"name"=>"", "description"=>"Beauty, Health & Garden\nBrand: Nike\nMaterial: Marble", "price"=>"32.4"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 422 Unprocessable Entity in 3ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 1347)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/products" for 127.0.0.1 at 2023-11-29 15:54:26 +0530
+Processing by ProductsController#create as HTML
+  Parameters: {"name"=>"Intelligent Linen Watch", "description"=>"Shoes\nBrand: Sony\nMaterial: Wooden", "price"=>"81.75", "images"=>[#<ActionDispatch::Http::UploadedFile:0x00000001104075e8 @tempfile=#<Tempfile:/var/folders/g2/yc978xgj5217w5yk09l8l_s80000gp/T/RackMultipart20231129-39091-qx8ly3.pdf>, @content_type="application/pdf", @original_filename="cspbook.pdf", @headers="content-disposition: form-data; name=\"images[]\"; filename=\"cspbook.pdf\"\r\ncontent-type: application/pdf\r\ncontent-length: 813547\r\n">]}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 422 Unprocessable Entity in 30ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 887)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/products" for 127.0.0.1 at 2023-11-29 15:54:26 +0530
+Processing by ProductsController#create as HTML
+  Parameters: {"name"=>"Ergonomic Marble Plate", "description"=>"Grocery & Jewelry\nBrand: Beats\nMaterial: Plastic", "price"=>nil}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 422 Unprocessable Entity in 3ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 1127)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/products" for 127.0.0.1 at 2023-11-29 15:54:26 +0530
+Processing by ProductsController#create as HTML
+  Parameters: {"name"=>"Enormous Bronze Computer", "description"=>"test desc", "price"=>"57.43"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 422 Unprocessable Entity in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 1165)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Synergistic Silk Chair"], ["description", "Computers\nBrand: Adidas\nMaterial: Bronze"], ["price", 52.24], ["created_at", "2023-11-29 10:24:26.608499"], ["updated_at", "2023-11-29 10:24:26.608499"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/products/1" for 127.0.0.1 at 2023-11-29 15:54:26 +0530
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 1], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers] Rendered ProductSerializer with ActiveModelSerializers::Adapter::Attributes (1.4ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 1064)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.8ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Mediocre Iron Bottle"], ["description", "Kids & Home\nBrand: Beats\nMaterial: Plastic"], ["price", 19.17], ["created_at", "2023-11-29 10:24:26.619651"], ["updated_at", "2023-11-29 10:24:26.619651"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/products/100" for 127.0.0.1 at 2023-11-29 15:54:26 +0530
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"100"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 100], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Filter chain halted as :set_product rendered or redirected
+Completed 404 Not Found in 1ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 289)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Enormous Linen Shirt"], ["description", "Books\nBrand: Samsung\nMaterial: Wooden"], ["price", 39.06], ["created_at", "2023-11-29 10:24:26.629853"], ["updated_at", "2023-11-29 10:24:26.629853"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PUT "/products/1" for 127.0.0.1 at 2023-11-29 15:54:26 +0530
+Processing by ProductsController#update as HTML
+  Parameters: {"name"=>"modified name", "description"=>"Books\nBrand: Samsung\nMaterial: Wooden", "price"=>"39.06", "id"=>"1"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameter: :id. Context: { controller: ProductsController, action: update, request: #<ActionDispatch::Request:0x0000000110448700>, params: {"name"=>"modified name", "description"=>"Books\nBrand: Samsung\nMaterial: Wooden", "price"=>"39.06", "id"=>"1", "controller"=>"products", "action"=>"update"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mActiveStorage::Attachment Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Product"], ["name", "images"], ["LIMIT", 1]]
+  [1m[36mProduct Update (0.1ms)[0m  [1m[33mUPDATE "products" SET "name" = ?, "updated_at" = ? WHERE "products"."id" = ?[0m  [["name", "modified name"], ["updated_at", "2023-11-29 10:24:26.641981"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 1], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers] Rendered ProductSerializer with ActiveModelSerializers::Adapter::Attributes (1.43ms)
+Completed 201 Created in 12ms (Views: 1.8ms | ActiveRecord: 0.9ms | Allocations: 2087)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (1.7ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Mediocre Rubber Bottle"], ["description", "Kids\nBrand: Apple\nMaterial: Linen"], ["price", 28.11], ["created_at", "2023-11-29 10:24:26.650511"], ["updated_at", "2023-11-29 10:24:26.650511"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PUT "/products/100" for 127.0.0.1 at 2023-11-29 15:54:26 +0530
+Processing by ProductsController#update as HTML
+  Parameters: {"id"=>"100"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 100], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Filter chain halted as :set_product rendered or redirected
+Completed 404 Not Found in 1ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 363)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Enormous Bronze Knife"], ["description", "Grocery\nBrand: Apple\nMaterial: Bronze"], ["price", 61.54], ["created_at", "2023-11-29 10:24:26.661167"], ["updated_at", "2023-11-29 10:24:26.661167"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PUT "/products/1" for 127.0.0.1 at 2023-11-29 15:54:26 +0530
+Processing by ProductsController#update as HTML
+  Parameters: {"name"=>"", "description"=>"Grocery\nBrand: Apple\nMaterial: Bronze", "price"=>"61.54", "id"=>"1"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameter: :id. Context: { controller: ProductsController, action: update, request: #<ActionDispatch::Request:0x00000001103aaa00>, params: {"name"=>"", "description"=>"Grocery\nBrand: Apple\nMaterial: Bronze", "price"=>"61.54", "id"=>"1", "controller"=>"products", "action"=>"update"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mActiveStorage::Attachment Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Product"], ["name", "images"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 422 Unprocessable Entity in 7ms (Views: 0.6ms | ActiveRecord: 0.9ms | Allocations: 1566)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Synergistic Cotton Shoes"], ["description", "Books & Music\nBrand: Beats\nMaterial: Iron"], ["price", 48.95], ["created_at", "2023-11-29 10:24:26.675279"], ["updated_at", "2023-11-29 10:24:26.675279"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PUT "/products/1" for 127.0.0.1 at 2023-11-29 15:54:26 +0530
+Processing by ProductsController#update as HTML
+  Parameters: {"name"=>"Synergistic Cotton Shoes", "description"=>"Books & Music\nBrand: Beats\nMaterial: Iron", "price"=>nil, "id"=>"1"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameter: :id. Context: { controller: ProductsController, action: update, request: #<ActionDispatch::Request:0x000000010f10b368>, params: {"name"=>"Synergistic Cotton Shoes", "description"=>"Books & Music\nBrand: Beats\nMaterial: Iron", "price"=>nil, "id"=>"1", "controller"=>"products", "action"=>"update"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mActiveStorage::Attachment Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Product"], ["name", "images"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 422 Unprocessable Entity in 5ms (Views: 0.7ms | ActiveRecord: 0.6ms | Allocations: 1557)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Fantastic Paper Hat"], ["description", "Kids\nBrand: Nikon\nMaterial: Steel"], ["price", 77.38], ["created_at", "2023-11-29 10:24:26.689236"], ["updated_at", "2023-11-29 10:24:26.689236"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PUT "/products/1" for 127.0.0.1 at 2023-11-29 15:54:26 +0530
+Processing by ProductsController#update as HTML
+  Parameters: {"name"=>"Fantastic Paper Hat", "description"=>"test desc", "price"=>"77.38", "id"=>"1"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameter: :id. Context: { controller: ProductsController, action: update, request: #<ActionDispatch::Request:0x000000010e981228>, params: {"name"=>"Fantastic Paper Hat", "description"=>"test desc", "price"=>"77.38", "id"=>"1", "controller"=>"products", "action"=>"update"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mActiveStorage::Attachment Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Product"], ["name", "images"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 422 Unprocessable Entity in 4ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 1562)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.8ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Gorgeous Copper Chair"], ["description", "Kids\nBrand: Beats\nMaterial: Concrete"], ["price", 85.9], ["created_at", "2023-11-29 10:24:26.699631"], ["updated_at", "2023-11-29 10:24:26.699631"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started DELETE "/products/1" for 127.0.0.1 at 2023-11-29 15:54:26 +0530
+Processing by ProductsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 1], ["record_type", "Product"], ["name", "images"]]
+  [1m[36mProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 204 No Content in 4ms (ActiveRecord: 0.6ms | Allocations: 978)
+  [1m[36mProduct Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Aerodynamic Steel Coat"], ["description", "Shoes & Health\nBrand: Samsung\nMaterial: Wooden"], ["price", 84.54], ["created_at", "2023-11-29 10:24:26.711166"], ["updated_at", "2023-11-29 10:24:26.711166"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started DELETE "/products/100" for 127.0.0.1 at 2023-11-29 15:54:26 +0530
+Processing by ProductsController#destroy as HTML
+  Parameters: {"id"=>"100"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 100], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Filter chain halted as :set_product rendered or redirected
+Completed 404 Not Found in 1ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 363)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m

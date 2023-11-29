@@ -17,14 +17,14 @@ class OrdersController < ApplicationController
 
     if @order_item
       @order_item.update(quantity: @order_item.quantity + order_item_params[:quantity])
-    else
+    elsif
       @order.order_item.build(order_item_params)
     end
 
     if @order.save
         render json: @order, status: :created
     else
-        render json: {error: @order_item.full_messages}, status: :unprocessable_entity
+      render json: {error: @order.errors.full_messages}, status: :unprocessable_entity
     end
   end
 
@@ -48,7 +48,7 @@ class OrdersController < ApplicationController
       if @order_item.update(order_item_params)
         render json: @order, status: :created
       else
-        render json: {error: @order_item.full_messages}, status: :unprocessable_entity
+        render json: {error: @order_item.errors.full_messages}, status: :unprocessable_entity
       end
     else
       render json: {error: "Product not found"}, status: :not_found
