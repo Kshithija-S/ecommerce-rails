@@ -1,0 +1,1870 @@
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-27 10:25:10.705929', '2023-11-27 10:25:10.705932') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateOrderItems (20231127100853)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "order_items" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "order_id" integer NOT NULL, "product_id" integer NOT NULL, "quantity" integer, "price" float, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_e3cb28f071"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_order_items_on_order_id" ON "order_items" ("order_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231127100853') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateOrders (20231127101101)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "orders" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "status" varchar NOT NULL, "total_price" float, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231127101101') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mOrderItem Load (0.1ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
+Started POST "/orders" for ::1 at 2023-11-27 17:06:34 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#create as */*
+  Parameters: {"productId"=>1, "quantity"=>1, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."status" = ? LIMIT ?[0m  [["user_id", 1], ["status", "0"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+Completed 204 No Content in 25ms (ActiveRecord: 2.6ms | Allocations: 6576)
+
+
+Started POST "/orders" for ::1 at 2023-11-27 17:08:02 +0530
+Processing by OrdersController#create as */*
+  Parameters: {"productId"=>1, "quantity"=>1, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."status" = ? LIMIT ?[0m  [["user_id", 1], ["status", "0"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+Completed 204 No Content in 6ms (ActiveRecord: 2.3ms | Allocations: 783)
+
+
+Started POST "/orders" for ::1 at 2023-11-27 17:08:29 +0530
+Processing by OrdersController#create as */*
+  Parameters: {"productId"=>1, "quantity"=>1, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."status" = ? LIMIT ?[0m  [["user_id", 1], ["status", "0"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+Completed 204 No Content in 1ms (ActiveRecord: 2.0ms | Allocations: 781)
+
+
+Started POST "/orders" for ::1 at 2023-11-27 17:09:49 +0530
+Processing by OrdersController#create as */*
+  Parameters: {"productId"=>1, "quantity"=>1, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."status" = ? LIMIT ?[0m  [["user_id", 1], ["status", "0"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+Completed 204 No Content in 2ms (ActiveRecord: 2.2ms | Allocations: 781)
+
+
+Started POST "/orders" for ::1 at 2023-11-27 17:09:57 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#create as */*
+  Parameters: {"productId"=>1, "quantity"=>1, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."status" = ? LIMIT ?[0m  [["user_id", 1], ["status", "0"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+Completed 204 No Content in 15ms (ActiveRecord: 2.1ms | Allocations: 4910)
+
+
+Started POST "/orders" for ::1 at 2023-11-27 17:10:10 +0530
+Processing by OrdersController#create as */*
+  Parameters: {"productId"=>1, "quantity"=>1, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."status" = ? LIMIT ?[0m  [["user_id", 1], ["status", "0"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+Completed 500 Internal Server Error in 28351ms (ActiveRecord: 2.1ms | Allocations: 145206)
+
+
+  
+SystemExit (exit):
+  
+(rdbg)//Users/cb001/Desktop/practice/ROR/ecommerce_rails/order_service/app/controllers/orders_controller.rb:1:in `exit'
+(rdbg)//Users/cb001/Desktop/practice/ROR/ecommerce_rails/order_service/app/controllers/orders_controller.rb:1:in `create'
+app/controllers/orders_controller.rb:10:in `create'
+Started POST "/orders" for ::1 at 2023-11-27 17:10:52 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#create as */*
+  Parameters: {"productId"=>1, "quantity"=>1, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."status" = ? LIMIT ?[0m  [["user_id", 1], ["status", "0"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+Completed 500 Internal Server Error in 26769ms (ActiveRecord: 2.5ms | Allocations: 159935)
+
+
+  
+SystemExit (exit):
+  
+(rdbg)//Users/cb001/Desktop/practice/ROR/ecommerce_rails/order_service/app/controllers/orders_controller.rb:1:in `exit'
+(rdbg)//Users/cb001/Desktop/practice/ROR/ecommerce_rails/order_service/app/controllers/orders_controller.rb:1:in `create'
+app/controllers/orders_controller.rb:13:in `create'
+Started POST "/orders" for ::1 at 2023-11-27 17:11:30 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#create as */*
+  Parameters: {"productId"=>1, "quantity"=>1, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."status" = ? LIMIT ?[0m  [["user_id", 1], ["status", "0"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:13:in `create'
+  [1m[36mOrder Create (2.4ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "status", "total_price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["status", "0"], ["total_price", nil], ["created_at", "2023-11-27 11:41:30.851302"], ["updated_at", "2023-11-27 11:41:30.851302"]]
+  ↳ app/controllers/orders_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:13:in `create'
+[31mUnpermitted parameters: :productId, :order. Context: { controller: OrdersController, action: create, request: #<ActionDispatch::Request:0x000000010b842a90>, params: {"productId"=>1, "quantity"=>1, "price"=>23.2, "controller"=>"orders", "action"=>"create", "order"=>{}} }[0m
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 5.3ms | Allocations: 16460)
+
+
+  
+ArgumentError (wrong number of arguments (given 2, expected 0..1)):
+  
+app/controllers/orders_controller.rb:14:in `create'
+Started POST "/orders" for ::1 at 2023-11-27 17:12:40 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#create as */*
+  Parameters: {"productId"=>1, "quantity"=>1, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."status" = ? LIMIT ?[0m  [["user_id", 1], ["status", "0"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+[31mUnpermitted parameters: :productId, :order. Context: { controller: OrdersController, action: create, request: #<ActionDispatch::Request:0x0000000106120e60>, params: {"productId"=>1, "quantity"=>1, "price"=>23.2, "controller"=>"orders", "action"=>"create", "order"=>{}} }[0m
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 2.4ms | Allocations: 14636)
+
+
+  
+ArgumentError (wrong number of arguments (given 2, expected 0..1)):
+  
+app/controllers/orders_controller.rb:14:in `create'
+Started POST "/orders" for ::1 at 2023-11-27 17:14:09 +0530
+Processing by OrdersController#create as */*
+  Parameters: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."status" = ? LIMIT ?[0m  [["user_id", 1], ["status", "0"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+[31mUnpermitted parameter: :order. Context: { controller: OrdersController, action: create, request: #<ActionDispatch::Request:0x0000000107486360>, params: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "controller"=>"orders", "action"=>"create", "order"=>{}} }[0m
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 784)
+
+
+  
+ArgumentError (wrong number of arguments (given 2, expected 0..1)):
+  
+app/controllers/orders_controller.rb:14:in `create'
+Started POST "/orders" for ::1 at 2023-11-27 17:14:33 +0530
+Processing by OrdersController#create as */*
+  Parameters: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."status" = ? LIMIT ?[0m  [["user_id", 1], ["status", "0"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+[31mUnpermitted parameter: :order. Context: { controller: OrdersController, action: create, request: #<ActionDispatch::Request:0x0000000107a27e40>, params: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "controller"=>"orders", "action"=>"create", "order"=>{}} }[0m
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 2.3ms | Allocations: 3982)
+
+
+  
+ArgumentError (wrong number of arguments (given 2, expected 0..1)):
+  
+app/controllers/orders_controller.rb:14:in `create'
+Started POST "/orders" for ::1 at 2023-11-27 17:15:55 +0530
+Processing by OrdersController#create as */*
+  Parameters: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."status" = ? LIMIT ?[0m  [["user_id", 1], ["status", "0"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+[31mUnpermitted parameter: :order. Context: { controller: OrdersController, action: create, request: #<ActionDispatch::Request:0x0000000107702120>, params: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "controller"=>"orders", "action"=>"create", "order"=>{}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mOrderItem Create (1.1ms)[0m  [1m[32mINSERT INTO "order_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["order_id", nil], ["product_id", 1], ["quantity", 1], ["price", 23.2], ["created_at", "2023-11-27 11:45:56.010548"], ["updated_at", "2023-11-27 11:45:56.010548"]]
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 3.7ms | Allocations: 12870)
+
+
+  
+ActiveRecord::NotNullViolation (SQLite3::ConstraintException: NOT NULL constraint failed: order_items.order_id):
+  
+Started POST "/orders" for ::1 at 2023-11-27 17:17:13 +0530
+Processing by OrdersController#create as */*
+  Parameters: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."status" = ? LIMIT ?[0m  [["user_id", 1], ["status", "0"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+[31mUnpermitted parameter: :order. Context: { controller: OrdersController, action: create, request: #<ActionDispatch::Request:0x00000001077823c0>, params: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "controller"=>"orders", "action"=>"create", "order"=>{}} }[0m
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 2.7ms | Allocations: 3914)
+
+
+  
+ArgumentError (wrong number of arguments (given 2, expected 0..1)):
+  
+app/controllers/orders_controller.rb:14:in `create'
+Started POST "/orders" for ::1 at 2023-11-27 17:17:51 +0530
+  
+SyntaxError (/Users/cb001/Desktop/practice/ROR/ecommerce_rails/order_service/app/controllers/orders_controller.rb:33: syntax error, unexpected ':', expecting ')'
+..., :quantity, :price, :order_id: @order.id)
+...                              ^
+):
+  
+app/controllers/orders_controller.rb:33: syntax error, unexpected ':', expecting ')'
+Started POST "/orders" for ::1 at 2023-11-27 17:18:47 +0530
+Processing by OrdersController#create as */*
+  Parameters: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."status" = ? LIMIT ?[0m  [["user_id", 1], ["status", "0"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+[31mUnpermitted parameter: :order. Context: { controller: OrdersController, action: create, request: #<ActionDispatch::Request:0x00000001076a19b0>, params: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "controller"=>"orders", "action"=>"create", "order"=>{}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mOrderItem Create (1.4ms)[0m  [1m[32mINSERT INTO "order_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["order_id", nil], ["product_id", 1], ["quantity", 1], ["price", 23.2], ["created_at", "2023-11-27 11:48:47.277831"], ["updated_at", "2023-11-27 11:48:47.277831"]]
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 5.3ms | Allocations: 8816)
+
+
+  
+ActiveRecord::NotNullViolation (SQLite3::ConstraintException: NOT NULL constraint failed: order_items.order_id):
+  
+Started POST "/orders" for ::1 at 2023-11-27 17:22:32 +0530
+  
+SyntaxError (/Users/cb001/Desktop/practice/ROR/ecommerce_rails/order_service/app/controllers/orders_controller.rb:39: syntax error, unexpected `end'):
+  
+app/controllers/orders_controller.rb:39: syntax error, unexpected `end'
+Started POST "/orders" for ::1 at 2023-11-27 17:23:45 +0530
+Processing by OrdersController#create as */*
+  Parameters: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."status" = ? LIMIT ?[0m  [["user_id", 1], ["status", "0"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+[31mUnpermitted parameter: :order. Context: { controller: OrdersController, action: create, request: #<ActionDispatch::Request:0x00000001077cc588>, params: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "controller"=>"orders", "action"=>"create", "order"=>{}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mOrderItem Create (1.5ms)[0m  [1m[32mINSERT INTO "order_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["order_id", 1], ["product_id", 1], ["quantity", 1], ["price", 23.2], ["created_at", "2023-11-27 11:53:45.251592"], ["updated_at", "2023-11-27 11:53:45.251592"]]
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+Completed 201 Created in 40ms (Views: 1.6ms | ActiveRecord: 6.8ms | Allocations: 14328)
+
+
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mOrderItem Load (0.2ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
+Started POST "/orders" for ::1 at 2023-11-27 17:38:48 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#create as */*
+  Parameters: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."status" = ? LIMIT ?[0m  [["user_id", 1], ["status", "0"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+[31mUnpermitted parameter: :order. Context: { controller: OrdersController, action: create, request: #<ActionDispatch::Request:0x0000000104182f90>, params: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "controller"=>"orders", "action"=>"create", "order"=>{}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mOrderItem Create (1.6ms)[0m  [1m[32mINSERT INTO "order_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["order_id", 1], ["product_id", 1], ["quantity", 1], ["price", 23.2], ["created_at", "2023-11-27 12:08:48.193558"], ["updated_at", "2023-11-27 12:08:48.193558"]]
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 4.6ms | Allocations: 26010)
+
+
+  
+NoMethodError (undefined method `order' for #<OrderItem id: nil, order_id: 1, product_id: 1, quantity: 1, price: 23.2, created_at: "2023-11-27 12:08:48.193558000 +0000", updated_at: "2023-11-27 12:08:48.193558000 +0000">):
+  
+app/models/order_item.rb:7:in `update_total_price'
+app/controllers/orders_controller.rb:16:in `create'
+Started POST "/orders" for ::1 at 2023-11-27 17:39:33 +0530
+Processing by OrdersController#create as */*
+  Parameters: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."status" = ? LIMIT ?[0m  [["user_id", 1], ["status", "0"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+[31mUnpermitted parameter: :order. Context: { controller: OrdersController, action: create, request: #<ActionDispatch::Request:0x0000000105aa5bf8>, params: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "controller"=>"orders", "action"=>"create", "order"=>{}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mOrderItem Create (1.0ms)[0m  [1m[32mINSERT INTO "order_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["order_id", 1], ["product_id", 1], ["quantity", 1], ["price", 23.2], ["created_at", "2023-11-27 12:09:33.817446"], ["updated_at", "2023-11-27 12:09:33.817446"]]
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mOrderItem Load (0.1ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = ?[0m  [["order_id", 1]]
+  ↳ app/models/order_item.rb:8:in `update_total_price'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+Completed 201 Created in 26ms (Views: 0.7ms | ActiveRecord: 4.4ms | Allocations: 12797)
+
+
+Started POST "/orders" for ::1 at 2023-11-27 17:41:25 +0530
+Processing by OrdersController#create as */*
+  Parameters: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."status" = ? LIMIT ?[0m  [["user_id", 1], ["status", "0"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+[31mUnpermitted parameter: :order. Context: { controller: OrdersController, action: create, request: #<ActionDispatch::Request:0x00000001058c2318>, params: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "controller"=>"orders", "action"=>"create", "order"=>{}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mOrderItem Create (1.1ms)[0m  [1m[32mINSERT INTO "order_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["order_id", 1], ["product_id", 1], ["quantity", 1], ["price", 23.2], ["created_at", "2023-11-27 12:11:25.169633"], ["updated_at", "2023-11-27 12:11:25.169633"]]
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mOrderItem Load (0.1ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = ?[0m  [["order_id", 1]]
+  ↳ app/models/order_item.rb:8:in `update_total_price'
+  [1m[36mOrder Update (0.5ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = ?, "updated_at" = ? WHERE "orders"."id" = ?[0m  [["total_price", 69.6], ["updated_at", "2023-11-27 12:11:25.173680"], ["id", 1]]
+  ↳ app/models/order_item.rb:9:in `update_total_price'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+Completed 201 Created in 20ms (Views: 0.6ms | ActiveRecord: 4.8ms | Allocations: 11718)
+
+
+Started POST "/orders" for ::1 at 2023-11-27 17:41:49 +0530
+Processing by OrdersController#create as */*
+  Parameters: {"product_id"=>1, "quantity"=>3, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."status" = ? LIMIT ?[0m  [["user_id", 1], ["status", "0"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+[31mUnpermitted parameter: :order. Context: { controller: OrdersController, action: create, request: #<ActionDispatch::Request:0x0000000104f9f150>, params: {"product_id"=>1, "quantity"=>3, "price"=>23.2, "controller"=>"orders", "action"=>"create", "order"=>{}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mOrderItem Create (1.0ms)[0m  [1m[32mINSERT INTO "order_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["order_id", 1], ["product_id", 1], ["quantity", 3], ["price", 23.2], ["created_at", "2023-11-27 12:11:49.610704"], ["updated_at", "2023-11-27 12:11:49.610704"]]
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mOrderItem Load (0.1ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = ?[0m  [["order_id", 1]]
+  ↳ app/models/order_item.rb:8:in `update_total_price'
+  [1m[36mOrder Update (0.1ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = ?, "updated_at" = ? WHERE "orders"."id" = ?[0m  [["total_price", 139.2], ["updated_at", "2023-11-27 12:11:49.614353"], ["id", 1]]
+  ↳ app/models/order_item.rb:9:in `update_total_price'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+Completed 201 Created in 9ms (Views: 0.3ms | ActiveRecord: 1.8ms | Allocations: 4182)
+
+
+Started POST "/orders" for ::1 at 2023-11-27 17:42:13 +0530
+Processing by OrdersController#create as */*
+  Parameters: {"product_id"=>1, "quantity"=>3, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."status" = ? LIMIT ?[0m  [["user_id", 1], ["status", "0"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+[31mUnpermitted parameter: :order. Context: { controller: OrdersController, action: create, request: #<ActionDispatch::Request:0x0000000105c2c580>, params: {"product_id"=>1, "quantity"=>3, "price"=>23.2, "controller"=>"orders", "action"=>"create", "order"=>{}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mOrderItem Create (1.0ms)[0m  [1m[32mINSERT INTO "order_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["order_id", 1], ["product_id", 1], ["quantity", 3], ["price", 23.2], ["created_at", "2023-11-27 12:12:13.747639"], ["updated_at", "2023-11-27 12:12:13.747639"]]
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mOrderItem Load (0.1ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = ?[0m  [["order_id", 1]]
+  ↳ app/models/order_item.rb:8:in `update_total_price'
+  [1m[36mOrder Update (0.1ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = ?, "updated_at" = ? WHERE "orders"."id" = ?[0m  [["total_price", 208.79999999999998], ["updated_at", "2023-11-27 12:12:13.752004"], ["id", 1]]
+  ↳ app/models/order_item.rb:9:in `update_total_price'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+Completed 201 Created in 18ms (Views: 0.3ms | ActiveRecord: 4.3ms | Allocations: 11693)
+
+
+Started POST "/orders" for ::1 at 2023-11-27 17:47:31 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#create as */*
+  Parameters: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."status" = ? LIMIT ?[0m  [["user_id", 1], ["status", "0"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+[31mUnpermitted parameter: :order. Context: { controller: OrdersController, action: create, request: #<ActionDispatch::Request:0x000000010ebc4080>, params: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "controller"=>"orders", "action"=>"create", "order"=>{}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mOrderItem Create (3.7ms)[0m  [1m[32mINSERT INTO "order_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["order_id", 1], ["product_id", 1], ["quantity", 1], ["price", 23.2], ["created_at", "2023-11-27 12:17:32.001192"], ["updated_at", "2023-11-27 12:17:32.001192"]]
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mOrderItem Load (0.1ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = ?[0m  [["order_id", 1]]
+  ↳ app/models/order_item.rb:8:in `update_total_price'
+  [1m[36mOrder Update (0.2ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = ?, "updated_at" = ? WHERE "orders"."id" = ?[0m  [["total_price", 232.0], ["updated_at", "2023-11-27 12:17:32.009633"], ["id", 1]]
+  ↳ app/models/order_item.rb:9:in `update_total_price'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+Completed 201 Created in 81ms (Views: 0.9ms | ActiveRecord: 8.5ms | Allocations: 28648)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE DATABASE "product_dev" ENCODING = 'unicode'[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8315252677181543730)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to CreateOrderItems (20231127100853)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (35.6ms)[0m  [1m[35mCREATE TABLE "order_items" ("id" bigserial primary key, "order_id" bigint NOT NULL, "product_id" integer NOT NULL, "quantity" integer, "price" float, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_e3cb28f071"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8315252677181543730)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (76.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "product_dev"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "product_dev"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "product_dev"[0m
+  [1m[35m (381.5ms)[0m  [1m[35mCREATE DATABASE "order_dev" ENCODING = 'unicode'[0m
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2830497072753165585)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-27 12:20:41.562328', '2023-11-27 12:20:41.562331') RETURNING "key"[0m
+Migrating to CreateOrderItems (20231127100853)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.7ms)[0m  [1m[35mCREATE TABLE "order_items" ("id" bigserial primary key, "order_id" bigint NOT NULL, "product_id" integer NOT NULL, "quantity" integer, "price" float, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_e3cb28f071"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2830497072753165585)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (40.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "order_dev"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "order_dev"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "order_dev"[0m
+  [1m[35m (111.5ms)[0m  [1m[35mCREATE DATABASE "order_dev" ENCODING = 'unicode'[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2830497072753165585)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-27 12:24:32.508271', '2023-11-27 12:24:32.508274') RETURNING "key"[0m
+Migrating to CreateOrderItems (20231127100853)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "order_items" ("id" bigserial primary key, "order_id" bigint NOT NULL, "product_id" integer NOT NULL, "quantity" integer, "price" float, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_e3cb28f071"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2830497072753165585)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2830497072753165585)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to CreateOrders (20231127100853)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "user_id" integer NOT NULL, "status" character varying NOT NULL, "total_price" float, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231127100853') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOrderItems (20231127101101)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (18.5ms)[0m  [1m[35mCREATE TABLE "order_items" ("id" bigserial primary key, "order_id" bigint NOT NULL, "product_id" integer NOT NULL, "quantity" integer, "price" float, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_e3cb28f071"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE INDEX "index_order_items_on_order_id" ON "order_items" ("order_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231127101101') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (6.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(2830497072753165585)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (8.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/orders" for ::1 at 2023-11-27 17:59:36 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#create as */*
+  Parameters: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "0"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+[31mUnpermitted parameter: :order. Context: { controller: OrdersController, action: create, request: #<ActionDispatch::Request:0x00000001144aba40>, params: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "controller"=>"orders", "action"=>"create", "order"=>{}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mOrder Create (1.5ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "status", "total_price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["status", "0"], ["total_price", nil], ["created_at", "2023-11-27 12:29:36.317946"], ["updated_at", "2023-11-27 12:29:36.317946"]]
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mOrderItem Create (1.6ms)[0m  [1m[32mINSERT INTO "order_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 1], ["product_id", 1], ["quantity", 1], ["price", 23.2], ["created_at", "2023-11-27 12:29:36.321408"], ["updated_at", "2023-11-27 12:29:36.321408"]]
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mOrderItem Load (0.2ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/models/order_item.rb:8:in `update_total_price'
+  [1m[36mOrder Update (0.4ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", 23.2], ["updated_at", "2023-11-27 12:29:36.326586"], ["id", 1]]
+  ↳ app/models/order_item.rb:9:in `update_total_price'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+Completed 201 Created in 70ms (Views: 0.4ms | ActiveRecord: 16.8ms | Allocations: 29130)
+
+
+Started POST "/orders" for ::1 at 2023-11-28 10:32:52 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#create as */*
+  Parameters: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `create'
+[31mUnpermitted parameter: :order. Context: { controller: OrdersController, action: create, request: #<ActionDispatch::Request:0x0000000114e2bae8>, params: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "controller"=>"orders", "action"=>"create", "order"=>{}} }[0m
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 18.9ms | Allocations: 24360)
+
+
+  
+NoMethodError (undefined method `full_messages' for nil:NilClass):
+  
+app/controllers/orders_controller.rb:20:in `create'
+Started POST "/orders" for ::1 at 2023-11-28 10:33:21 +0530
+Processing by OrdersController#create as */*
+  Parameters: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `create'
+[31mUnpermitted parameter: :order. Context: { controller: OrdersController, action: create, request: #<ActionDispatch::Request:0x0000000115421560>, params: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "controller"=>"orders", "action"=>"create", "order"=>{}} }[0m
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 7.7ms | Allocations: 7936)
+
+
+  
+NoMethodError (undefined method `full_messages' for nil:NilClass):
+  
+app/controllers/orders_controller.rb:20:in `create'
+Started POST "/orders" for ::1 at 2023-11-28 10:33:31 +0530
+Processing by OrdersController#create as */*
+  Parameters: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `create'
+[31mUnpermitted parameter: :order. Context: { controller: OrdersController, action: create, request: #<ActionDispatch::Request:0x00000001153c4f68>, params: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "controller"=>"orders", "action"=>"create", "order"=>{}} }[0m
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 7.0ms | Allocations: 8020)
+
+
+  
+NoMethodError (undefined method `full_messages' for #<Order id: nil, user_id: 1, status: "cart", total_price: nil, created_at: nil, updated_at: nil>):
+  
+app/controllers/orders_controller.rb:20:in `create'
+Started POST "/orders" for ::1 at 2023-11-28 10:34:25 +0530
+Processing by OrdersController#create as */*
+  Parameters: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `create'
+[31mUnpermitted parameter: :order. Context: { controller: OrdersController, action: create, request: #<ActionDispatch::Request:0x000000011550eb08>, params: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "controller"=>"orders", "action"=>"create", "order"=>{}} }[0m
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 7.7ms | Allocations: 8061)
+
+
+  
+NoMethodError (undefined method `full_messages' for #<ActiveRecord::Associations::CollectionProxy [#<OrderItem id: nil, order_id: nil, product_id: 1, quantity: 1, price: 23.2, created_at: nil, updated_at: nil>]>):
+  
+app/controllers/orders_controller.rb:20:in `create'
+Started POST "/orders" for ::1 at 2023-11-28 10:35:28 +0530
+Processing by OrdersController#create as */*
+  Parameters: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+[31mUnpermitted parameter: :order. Context: { controller: OrdersController, action: create, request: #<ActionDispatch::Request:0x00000001154c50c0>, params: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "controller"=>"orders", "action"=>"create", "order"=>{}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mOrder Create (1.7ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "status", "total_price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["status", "cart"], ["total_price", nil], ["created_at", "2023-11-28 05:05:28.230994"], ["updated_at", "2023-11-28 05:05:28.230994"]]
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mOrderItem Create (1.0ms)[0m  [1m[32mINSERT INTO "order_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 2], ["product_id", 1], ["quantity", 1], ["price", 23.2], ["created_at", "2023-11-28 05:05:28.235445"], ["updated_at", "2023-11-28 05:05:28.235445"]]
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mOrderItem Load (0.4ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 2]]
+  ↳ app/models/order_item.rb:8:in `update_total_price'
+  [1m[36mOrder Update (0.4ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", 23.2], ["updated_at", "2023-11-28 05:05:28.240197"], ["id", 2]]
+  ↳ app/models/order_item.rb:9:in `update_total_price'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+Completed 201 Created in 30ms (Views: 0.6ms | ActiveRecord: 11.7ms | Allocations: 12678)
+
+
+Started POST "/orders" for ::1 at 2023-11-28 10:35:36 +0530
+Processing by OrdersController#create as */*
+  Parameters: {"product_id"=>1, "quantity"=>2, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+[31mUnpermitted parameter: :order. Context: { controller: OrdersController, action: create, request: #<ActionDispatch::Request:0x0000000115288d48>, params: {"product_id"=>1, "quantity"=>2, "price"=>23.2, "controller"=>"orders", "action"=>"create", "order"=>{}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mOrderItem Create (22.1ms)[0m  [1m[32mINSERT INTO "order_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 2], ["product_id", 1], ["quantity", 2], ["price", 23.2], ["created_at", "2023-11-28 05:05:36.719239"], ["updated_at", "2023-11-28 05:05:36.719239"]]
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mOrderItem Load (0.3ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 2]]
+  ↳ app/models/order_item.rb:8:in `update_total_price'
+  [1m[36mOrder Update (0.4ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", 69.6], ["updated_at", "2023-11-28 05:05:36.748290"], ["id", 2]]
+  ↳ app/models/order_item.rb:9:in `update_total_price'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+Completed 201 Created in 114ms (Views: 0.7ms | ActiveRecord: 23.9ms | Allocations: 4295)
+
+
+Started POST "/orders" for ::1 at 2023-11-28 10:35:47 +0530
+Processing by OrdersController#create as */*
+  Parameters: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "order"=>{}}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+[31mUnpermitted parameter: :order. Context: { controller: OrdersController, action: create, request: #<ActionDispatch::Request:0x0000000114ca62e0>, params: {"product_id"=>1, "quantity"=>1, "price"=>23.2, "controller"=>"orders", "action"=>"create", "order"=>{}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mOrderItem Create (2.7ms)[0m  [1m[32mINSERT INTO "order_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 2], ["product_id", 1], ["quantity", 1], ["price", 23.2], ["created_at", "2023-11-28 05:05:47.691583"], ["updated_at", "2023-11-28 05:05:47.691583"]]
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mOrderItem Load (0.3ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 2]]
+  ↳ app/models/order_item.rb:8:in `update_total_price'
+  [1m[36mOrder Update (0.3ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", 92.8], ["updated_at", "2023-11-28 05:05:47.701715"], ["id", 2]]
+  ↳ app/models/order_item.rb:9:in `update_total_price'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+Completed 201 Created in 23ms (Views: 1.3ms | ActiveRecord: 4.1ms | Allocations: 4283)
+
+
+Started POST "/orders" for ::1 at 2023-11-28 10:39:29 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#create as */*
+  Parameters: {"_json"=>[{"product_id"=>1, "quantity"=>1, "price"=>23.2}, {"product_id"=>3, "quantity"=>2, "price"=>15}], "order"=>{}}
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+[31mUnpermitted parameters: :_json, :order. Context: { controller: OrdersController, action: create, request: #<ActionDispatch::Request:0x000000010a3ac270>, params: {"_json"=>[{"product_id"=>1, "quantity"=>1, "price"=>23.2}, {"product_id"=>3, "quantity"=>2, "price"=>15}], "controller"=>"orders", "action"=>"create", "order"=>{}} }[0m
+Completed 500 Internal Server Error in 56ms (ActiveRecord: 13.7ms | Allocations: 24360)
+
+
+  
+NoMethodError (undefined method `full_messages' for nil:NilClass):
+  
+app/controllers/orders_controller.rb:19:in `create'
+Started POST "/orders" for ::1 at 2023-11-28 10:44:31 +0530
+Processing by OrdersController#create as */*
+  Parameters: {"items"=>[{"product_id"=>1, "quantity"=>1, "price"=>23.2}, {"product_id"=>3, "quantity"=>2, "price"=>15}], "order"=>{}}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+Completed 400 Bad Request in 19ms (ActiveRecord: 8.1ms | Allocations: 4218)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: {:items=>[]}):
+  
+app/controllers/orders_controller.rb:32:in `order_item_params'
+app/controllers/orders_controller.rb:14:in `create'
+Started POST "/orders" for ::1 at 2023-11-28 10:47:07 +0530
+Processing by OrdersController#create as */*
+  Parameters: {"items"=>[{"product_id"=>1, "quantity"=>1, "price"=>23.2}, {"product_id"=>3, "quantity"=>2, "price"=>15}], "order"=>{}}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:22:in `create'
+  [1m[36mOrderItem Create (3.7ms)[0m  [1m[32mINSERT INTO "order_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 2], ["product_id", 1], ["quantity", 1], ["price", 23.2], ["created_at", "2023-11-28 05:17:07.557597"], ["updated_at", "2023-11-28 05:17:07.557597"]]
+  ↳ app/controllers/orders_controller.rb:22:in `create'
+  [1m[36mOrderItem Load (0.5ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 2]]
+  ↳ app/models/order_item.rb:8:in `update_total_price'
+  [1m[36mOrder Update (0.5ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", 146.0], ["updated_at", "2023-11-28 05:17:07.569090"], ["id", 2]]
+  ↳ app/models/order_item.rb:9:in `update_total_price'
+  [1m[36mOrderItem Create (0.4ms)[0m  [1m[32mINSERT INTO "order_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 2], ["product_id", 3], ["quantity", 2], ["price", 15.0], ["created_at", "2023-11-28 05:17:07.572335"], ["updated_at", "2023-11-28 05:17:07.572335"]]
+  ↳ app/controllers/orders_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:22:in `create'
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (1.25ms)
+Completed 201 Created in 58ms (Views: 20.5ms | ActiveRecord: 11.4ms | Allocations: 15908)
+
+
+Started POST "/orders" for ::1 at 2023-11-28 10:48:00 +0530
+Processing by OrdersController#create as */*
+  Parameters: {"items"=>[{"product_id"=>1, "quantity"=>1, "price"=>23.2}, {"product_id"=>3, "quantity"=>2, "price"=>15}], "order"=>{}}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:22:in `create'
+  [1m[36mOrderItem Create (1.2ms)[0m  [1m[32mINSERT INTO "order_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 2], ["product_id", 1], ["quantity", 1], ["price", 23.2], ["created_at", "2023-11-28 05:18:00.970160"], ["updated_at", "2023-11-28 05:18:00.970160"]]
+  ↳ app/controllers/orders_controller.rb:22:in `create'
+  [1m[36mOrderItem Load (0.2ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 2]]
+  ↳ app/models/order_item.rb:8:in `update_total_price'
+  [1m[36mOrder Update (0.3ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", 199.2], ["updated_at", "2023-11-28 05:18:00.975013"], ["id", 2]]
+  ↳ app/models/order_item.rb:9:in `update_total_price'
+  [1m[36mOrderItem Create (0.6ms)[0m  [1m[32mINSERT INTO "order_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 2], ["product_id", 3], ["quantity", 2], ["price", 15.0], ["created_at", "2023-11-28 05:18:00.976454"], ["updated_at", "2023-11-28 05:18:00.976454"]]
+  ↳ app/controllers/orders_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:22:in `create'
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (0.79ms)
+Completed 201 Created in 28ms (Views: 3.2ms | ActiveRecord: 7.8ms | Allocations: 13350)
+
+
+Started POST "/orders" for ::1 at 2023-11-28 10:59:19 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#create as */*
+  Parameters: {"items"=>[{"product_id"=>1, "quantity"=>1, "price"=>23.2}, {"product_id"=>3, "quantity"=>2, "price"=>15}], "order"=>{}}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 14.3ms | Allocations: 16057)
+
+
+  
+NoMethodError (undefined method `permit' for [#<ActionController::Parameters {"product_id"=>1, "quantity"=>1, "price"=>23.2} permitted: false>, #<ActionController::Parameters {"product_id"=>3, "quantity"=>2, "price"=>15} permitted: false>]:Array):
+  
+app/controllers/orders_controller.rb:35:in `order_params'
+app/controllers/orders_controller.rb:11:in `create'
+Started POST "/orders" for ::1 at 2023-11-28 11:00:15 +0530
+Processing by OrdersController#create as */*
+  Parameters: {"items"=>{"product_id"=>1, "quantity"=>1, "price"=>23.2}, "order"=>{}}
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:19:in `create'
+  [1m[36mOrder Create (2.1ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "status", "total_price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["status", "cart"], ["total_price", nil], ["created_at", "2023-11-28 05:30:15.259790"], ["updated_at", "2023-11-28 05:30:15.259790"]]
+  ↳ app/controllers/orders_controller.rb:19:in `create'
+  [1m[36mOrderItem Create (2.7ms)[0m  [1m[32mINSERT INTO "order_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 3], ["product_id", 1], ["quantity", 1], ["price", 23.2], ["created_at", "2023-11-28 05:30:15.264437"], ["updated_at", "2023-11-28 05:30:15.264437"]]
+  ↳ app/controllers/orders_controller.rb:19:in `create'
+  [1m[36mOrderItem Load (0.5ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+  ↳ app/models/order_item.rb:8:in `update_total_price'
+  [1m[36mOrder Update (0.6ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", 23.2], ["updated_at", "2023-11-28 05:30:15.274151"], ["id", 3]]
+  ↳ app/models/order_item.rb:9:in `update_total_price'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:19:in `create'
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (1.17ms)
+Completed 201 Created in 68ms (Views: 12.5ms | ActiveRecord: 9.7ms | Allocations: 17022)
+
+
+Started POST "/orders" for ::1 at 2023-11-28 11:03:58 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#create as */*
+  Parameters: {"items"=>{"product_id"=>1, "quantity"=>1, "price"=>23.2}, "order"=>{}}
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+  [1m[36mOrderItem Load (0.7ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["order_id", 3], ["product_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:14:in `create'
+  [1m[36mOrderItem Update (1.8ms)[0m  [1m[33mUPDATE "order_items" SET "quantity" = $1, "updated_at" = $2 WHERE "order_items"."id" = $3[0m  [["quantity", 2], ["updated_at", "2023-11-28 05:33:59.023203"], ["id", 9]]
+  ↳ app/controllers/orders_controller.rb:14:in `create'
+  [1m[36mOrderItem Load (0.2ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+  ↳ app/models/order_item.rb:8:in `update_total_price'
+  [1m[36mOrder Update (0.4ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", 46.4], ["updated_at", "2023-11-28 05:33:59.028792"], ["id", 3]]
+  ↳ app/models/order_item.rb:9:in `update_total_price'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (0.47ms)
+Completed 201 Created in 79ms (Views: 6.7ms | ActiveRecord: 22.2ms | Allocations: 30012)
+
+
+Started POST "/orders" for ::1 at 2023-11-28 11:08:48 +0530
+Processing by OrdersController#create as */*
+  Parameters: {"items"=>{"product_id"=>1, "quantity"=>1, "price"=>23.2}, "order"=>{}}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+  [1m[36mOrderItem Load (0.3ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["order_id", 3], ["product_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:14:in `create'
+  [1m[36mOrderItem Update (2.3ms)[0m  [1m[33mUPDATE "order_items" SET "quantity" = $1, "updated_at" = $2 WHERE "order_items"."id" = $3[0m  [["quantity", 3], ["updated_at", "2023-11-28 05:38:48.988339"], ["id", 9]]
+  ↳ app/controllers/orders_controller.rb:14:in `create'
+  [1m[36mOrderItem Load (0.2ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+  ↳ app/models/order_item.rb:8:in `update_total_price'
+  [1m[36mOrder Update (0.3ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", 69.6], ["updated_at", "2023-11-28 05:38:48.993493"], ["id", 3]]
+  ↳ app/models/order_item.rb:9:in `update_total_price'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.22ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (2.46ms)
+Completed 201 Created in 32ms (Views: 4.6ms | ActiveRecord: 11.7ms | Allocations: 12563)
+
+
+Started POST "/orders" for ::1 at 2023-11-28 11:09:38 +0530
+Processing by OrdersController#create as */*
+  Parameters: {"items"=>{"product_id"=>2, "quantity"=>1, "price"=>15}, "order"=>{}}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+  [1m[36mOrderItem Load (0.5ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["order_id", 3], ["product_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:19:in `create'
+  [1m[36mOrderItem Create (3.7ms)[0m  [1m[32mINSERT INTO "order_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 3], ["product_id", 2], ["quantity", 1], ["price", 15.0], ["created_at", "2023-11-28 05:39:38.759580"], ["updated_at", "2023-11-28 05:39:38.759580"]]
+  ↳ app/controllers/orders_controller.rb:19:in `create'
+  [1m[36mOrderItem Load (0.4ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+  ↳ app/models/order_item.rb:8:in `update_total_price'
+  [1m[36mOrder Update (0.3ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", 84.6], ["updated_at", "2023-11-28 05:39:38.767652"], ["id", 3]]
+  ↳ app/models/order_item.rb:9:in `update_total_price'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:19:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.28ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (1.09ms)
+Completed 201 Created in 21ms (Views: 1.5ms | ActiveRecord: 6.1ms | Allocations: 5633)
+
+
+Started GET "/orders/3" for ::1 at 2023-11-28 11:12:10 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/cb001/Desktop/practice/ROR/ecommerce_rails/order_service/app/controllers/orders_controller.rb:42: syntax error, unexpected end-of-input):
+  
+app/controllers/orders_controller.rb:42: syntax error, unexpected end-of-input
+Started GET "/orders/3" for ::1 at 2023-11-28 11:12:17 +0530
+Processing by OrdersController#show as */*
+  Parameters: {"items"=>{"product_id"=>2, "quantity"=>1, "price"=>15}, "id"=>"3", "order"=>{}}
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:5:in `show'
+[active_model_serializers]   [1m[36mOrderItem Load (0.7ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+[active_model_serializers]   ↳ app/controllers/orders_controller.rb:8:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.42ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (48.44ms)
+Completed 200 OK in 157ms (Views: 64.5ms | ActiveRecord: 22.3ms | Allocations: 26899)
+
+
+Started GET "/orders/1" for ::1 at 2023-11-28 11:12:23 +0530
+Processing by OrdersController#show as */*
+  Parameters: {"items"=>{"product_id"=>2, "quantity"=>1, "price"=>15}, "id"=>"1", "order"=>{}}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:5:in `show'
+[active_model_serializers]   [1m[36mOrderItem Load (0.3ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+[active_model_serializers]   ↳ app/controllers/orders_controller.rb:8:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.3ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (3.12ms)
+Completed 200 OK in 6ms (Views: 3.3ms | ActiveRecord: 0.5ms | Allocations: 2147)
+
+
+Started GET "/orders/2" for ::1 at 2023-11-28 11:12:32 +0530
+Processing by OrdersController#show as */*
+  Parameters: {"items"=>{"product_id"=>2, "quantity"=>1, "price"=>15}, "id"=>"2", "order"=>{}}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:5:in `show'
+[active_model_serializers]   [1m[36mOrderItem Load (1.8ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+[active_model_serializers]   ↳ app/controllers/orders_controller.rb:8:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.33ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (4.45ms)
+Completed 200 OK in 7ms (Views: 3.1ms | ActiveRecord: 2.0ms | Allocations: 2141)
+
+
+Started GET "/orders" for ::1 at 2023-11-28 11:13:03 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/orders"):
+  
+Started GET "/orders/3" for ::1 at 2023-11-28 11:13:28 +0530
+Processing by OrdersController#show as */*
+  Parameters: {"items"=>{"product_id"=>2, "quantity"=>1, "price"=>15}, "id"=>"3", "order"=>{}}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:5:in `show'
+[active_model_serializers]   [1m[36mOrderItem Load (0.4ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+[active_model_serializers]   ↳ app/controllers/orders_controller.rb:8:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.31ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (3.29ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.5ms | Allocations: 2139)
+
+
+Started GET "/orders" for ::1 at 2023-11-28 11:16:18 +0530
+  
+SyntaxError (/Users/cb001/Desktop/practice/ROR/ecommerce_rails/order_service/config/routes.rb:4: syntax error, unexpected ':', expecting ']'
+...ources :orders, only: [:index :create, :update, :destroy]
+...                              ^
+):
+  
+config/routes.rb:4: syntax error, unexpected ':', expecting ']'
+Started GET "/orders" for ::1 at 2023-11-28 11:16:43 +0530
+Processing by OrdersController#index as */*
+  Parameters: {"items"=>{"product_id"=>2, "quantity"=>1, "price"=>15}, "order"=>{}}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mOrderItem Load (0.3ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+[active_model_serializers]   ↳ app/controllers/orders_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.44ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (15.54ms)
+Completed 200 OK in 26ms (Views: 15.0ms | ActiveRecord: 7.6ms | Allocations: 9525)
+
+
+Started DELETE "/orders/2" for ::1 at 2023-11-28 11:37:33 +0530
+  
+SyntaxError (/Users/cb001/Desktop/practice/ROR/ecommerce_rails/order_service/app/controllers/orders_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+      head: :internal_server_error
+          ^
+/Users/cb001/Desktop/practice/ROR/ecommerce_rails/order_service/app/controllers/orders_controller.rb:40: syntax error, unexpected ':', expecting `end' or dummy end
+          head: :internal_server_error
+              ^
+):
+  
+app/controllers/orders_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/orders_controller.rb:40: syntax error, unexpected ':', expecting `end' or dummy end
+Started DELETE "/orders/2" for ::1 at 2023-11-28 11:38:17 +0530
+  
+SyntaxError (/Users/cb001/Desktop/practice/ROR/ecommerce_rails/order_service/app/controllers/orders_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+      head: :internal_server_error
+          ^
+/Users/cb001/Desktop/practice/ROR/ecommerce_rails/order_service/app/controllers/orders_controller.rb:40: syntax error, unexpected ':', expecting `end' or dummy end
+        head: :internal_server_error
+            ^
+):
+  
+app/controllers/orders_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/orders_controller.rb:40: syntax error, unexpected ':', expecting `end' or dummy end
+Started DELETE "/orders/2" for ::1 at 2023-11-28 11:38:23 +0530
+  
+SyntaxError (/Users/cb001/Desktop/practice/ROR/ecommerce_rails/order_service/app/controllers/orders_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+      head: :internal_server_error
+          ^
+/Users/cb001/Desktop/practice/ROR/ecommerce_rails/order_service/app/controllers/orders_controller.rb:40: syntax error, unexpected ':', expecting `end' or dummy end
+        head: :internal_server_error
+            ^
+):
+  
+app/controllers/orders_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/orders_controller.rb:40: syntax error, unexpected ':', expecting `end' or dummy end
+Started DELETE "/orders/2" for ::1 at 2023-11-28 11:38:40 +0530
+Processing by OrdersController#destroy as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mOrder Load (1.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:50:in `set_order'
+  [1m[36mOrderItem Load (0.6ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["order_id", 3], ["product_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:35:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:37:in `destroy'
+  [1m[36mOrderItem Destroy (2.3ms)[0m  [1m[31mDELETE FROM "order_items" WHERE "order_items"."id" = $1[0m  [["id", 10]]
+  ↳ app/controllers/orders_controller.rb:37:in `destroy'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:37:in `destroy'
+Completed 204 No Content in 64ms (Views: 0.3ms | ActiveRecord: 19.3ms | Allocations: 13203)
+
+
+Started GET "/orders" for ::1 at 2023-11-28 11:38:48 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:50:in `set_order'
+[active_model_serializers]   [1m[36mOrderItem Load (1.5ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+[active_model_serializers]   ↳ app/controllers/orders_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.28ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (7.69ms)
+Completed 200 OK in 24ms (Views: 18.2ms | ActiveRecord: 1.8ms | Allocations: 4163)
+
+
+Started POST "/orders" for ::1 at 2023-11-28 11:40:43 +0530
+Processing by OrdersController#create as */*
+  Parameters: {"items"=>{"product_id"=>2, "quantity"=>1, "price"=>15}, "order"=>{}}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:14:in `create'
+  [1m[36mOrderItem Load (0.2ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["order_id", 3], ["product_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:24:in `create'
+  [1m[36mOrderItem Create (2.4ms)[0m  [1m[32mINSERT INTO "order_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 3], ["product_id", 2], ["quantity", 1], ["price", 15.0], ["created_at", "2023-11-28 06:10:43.586252"], ["updated_at", "2023-11-28 06:10:43.586252"]]
+  ↳ app/controllers/orders_controller.rb:24:in `create'
+  [1m[36mOrderItem Load (0.3ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+  ↳ app/models/order_item.rb:9:in `update_total_price'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:24:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.09ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (3.52ms)
+Completed 201 Created in 45ms (Views: 5.2ms | ActiveRecord: 21.2ms | Allocations: 13274)
+
+
+Started DELETE "/orders/2" for ::1 at 2023-11-28 11:40:57 +0530
+Processing by OrdersController#destroy as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:50:in `set_order'
+  [1m[36mOrderItem Load (0.2ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["order_id", 3], ["product_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:35:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:37:in `destroy'
+  [1m[36mOrderItem Destroy (1.0ms)[0m  [1m[31mDELETE FROM "order_items" WHERE "order_items"."id" = $1[0m  [["id", 11]]
+  ↳ app/controllers/orders_controller.rb:37:in `destroy'
+  [1m[36mOrderItem Load (0.3ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+  ↳ app/models/order_item.rb:9:in `update_total_price'
+  [1m[36mOrder Update (0.3ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", 69.6], ["updated_at", "2023-11-28 06:10:57.857954"], ["id", 3]]
+  ↳ app/models/order_item.rb:10:in `update_total_price'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:37:in `destroy'
+Completed 204 No Content in 10ms (Views: 0.1ms | ActiveRecord: 2.6ms | Allocations: 3874)
+
+
+Started GET "/orders" for ::1 at 2023-11-28 11:41:02 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:50:in `set_order'
+[active_model_serializers]   [1m[36mOrderItem Load (1.0ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+[active_model_serializers]   ↳ app/controllers/orders_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.33ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (4.03ms)
+Completed 200 OK in 6ms (Views: 3.5ms | ActiveRecord: 1.2ms | Allocations: 2056)
+
+
+Started DELETE "/item/1" for ::1 at 2023-11-28 11:45:21 +0530
+  
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  
+config/routes.rb:5:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started DELETE "/orders/item/1" for ::1 at 2023-11-28 11:45:51 +0530
+  
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  
+config/routes.rb:5:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started DELETE "/orders/item/1" for ::1 at 2023-11-28 11:47:43 +0530
+Processing by OrdersController#destroy_item as */*
+  Parameters: {"product_id"=>"1"}
+Completed 404 Not Found in 2ms (ActiveRecord: 0.0ms | Allocations: 243)
+
+
+  
+AbstractController::ActionNotFound (The destroy action could not be found for the :set_order
+callback on OrdersController, but it is listed in the controller's
+:only option.
+
+Raising for missing callback actions is a new default in Rails 7.1, if you'd
+like to turn this off you can delete the option from the environment configurations
+or set `config.action_controller.raise_on_missing_callback_actions` to `false`.
+):
+  
+actionpack (7.1.2) lib/abstract_controller/callbacks.rb:62:in `match?'
+activesupport (7.1.2) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+activesupport (7.1.2) lib/active_support/callbacks.rb:182:in `block (2 levels) in halting_and_conditional'
+activesupport (7.1.2) lib/active_support/callbacks.rb:182:in `all?'
+activesupport (7.1.2) lib/active_support/callbacks.rb:182:in `block in halting_and_conditional'
+activesupport (7.1.2) lib/active_support/callbacks.rb:598:in `block in invoke_before'
+activesupport (7.1.2) lib/active_support/callbacks.rb:598:in `each'
+activesupport (7.1.2) lib/active_support/callbacks.rb:598:in `invoke_before'
+activesupport (7.1.2) lib/active_support/callbacks.rb:109:in `run_callbacks'
+actionpack (7.1.2) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.2) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.2) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.2) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.2) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.2) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.2) lib/abstract_controller/base.rb:160:in `process'
+actionpack (7.1.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.8) lib/rack/etag.rb:29:in `call'
+rack (3.0.8) lib/rack/conditional_get.rb:43:in `call'
+rack (3.0.8) lib/rack/head.rb:15:in `call'
+activerecord (7.1.2) lib/active_record/migration.rb:654:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.2) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started DELETE "/orders/item/1" for ::1 at 2023-11-28 11:48:08 +0530
+Processing by OrdersController#destroy_item as */*
+  Parameters: {"product_id"=>"1"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:50:in `set_order'
+  [1m[36mOrderItem Load (0.3ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["order_id", 3], ["product_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:35:in `destroy_item'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:37:in `destroy_item'
+  [1m[36mOrderItem Destroy (1.4ms)[0m  [1m[31mDELETE FROM "order_items" WHERE "order_items"."id" = $1[0m  [["id", 9]]
+  ↳ app/controllers/orders_controller.rb:37:in `destroy_item'
+  [1m[36mOrderItem Load (0.9ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+  ↳ app/models/order_item.rb:9:in `update_total_price'
+  [1m[36mOrder Update (0.4ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", 0.0], ["updated_at", "2023-11-28 06:18:08.263663"], ["id", 3]]
+  ↳ app/models/order_item.rb:10:in `update_total_price'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:37:in `destroy_item'
+Completed 204 No Content in 49ms (Views: 0.3ms | ActiveRecord: 15.6ms | Allocations: 12211)
+
+
+Started GET "/orders" for ::1 at 2023-11-28 11:48:15 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:50:in `set_order'
+[active_model_serializers]   [1m[36mOrderItem Load (0.4ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+[active_model_serializers]   ↳ app/controllers/orders_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (7.08ms)
+Completed 200 OK in 22ms (Views: 18.5ms | ActiveRecord: 0.6ms | Allocations: 3850)
+
+
+Started POST "/orders" for ::1 at 2023-11-28 11:55:28 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#create as */*
+  Parameters: {"items"=>{"product_id"=>1, "quantity"=>2, "price"=>10.5}, "order"=>{}}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:14:in `create'
+  [1m[36mOrderItem Load (0.3ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["order_id", 3], ["product_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:24:in `create'
+  [1m[36mOrderItem Create (1.7ms)[0m  [1m[32mINSERT INTO "order_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 3], ["product_id", 1], ["quantity", 2], ["price", 10.5], ["created_at", "2023-11-28 06:25:29.141505"], ["updated_at", "2023-11-28 06:25:29.141505"]]
+  ↳ app/controllers/orders_controller.rb:24:in `create'
+  [1m[36mOrderItem Load (0.2ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+  ↳ app/models/order_item.rb:9:in `update_total_price'
+  [1m[36mOrder Update (0.4ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", 21.0], ["updated_at", "2023-11-28 06:25:29.147123"], ["id", 3]]
+  ↳ app/models/order_item.rb:10:in `update_total_price'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:24:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.22ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (2.02ms)
+Completed 201 Created in 75ms (Views: 7.8ms | ActiveRecord: 18.3ms | Allocations: 31397)
+
+
+Started PUT "/orders" for ::1 at 2023-11-28 11:56:09 +0530
+  
+ActionController::RoutingError (No route matches [PUT] "/orders"):
+  
+Started PUT "/orders/1" for ::1 at 2023-11-28 11:57:47 +0530
+  
+ActionController::RoutingError (No route matches [PUT] "/orders/1"):
+  
+Started PUT "/orders/item/1" for ::1 at 2023-11-28 11:57:55 +0530
+Processing by OrdersController#update_item as */*
+  Parameters: {"items"=>{"product_id"=>1, "quantity"=>1}, "product_id"=>"1", "order"=>{}}
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:61:in `set_order'
+  [1m[36mOrderItem Load (0.3ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["order_id", 3], ["product_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:32:in `update_item'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:35:in `update_item'
+  [1m[36mOrderItem Update (2.0ms)[0m  [1m[33mUPDATE "order_items" SET "quantity" = $1, "updated_at" = $2 WHERE "order_items"."id" = $3[0m  [["quantity", 1], ["updated_at", "2023-11-28 06:27:55.665372"], ["id", 12]]
+  ↳ app/controllers/orders_controller.rb:35:in `update_item'
+  [1m[36mOrderItem Load (0.5ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+  ↳ app/models/order_item.rb:9:in `update_total_price'
+  [1m[36mOrder Update (0.8ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", 10.5], ["updated_at", "2023-11-28 06:27:55.672280"], ["id", 3]]
+  ↳ app/models/order_item.rb:10:in `update_total_price'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:35:in `update_item'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (2.4ms)
+Completed 201 Created in 39ms (Views: 4.4ms | ActiveRecord: 15.6ms | Allocations: 12414)
+
+
+Started PUT "/orders/item/1" for ::1 at 2023-11-28 11:58:40 +0530
+Processing by OrdersController#update_item as */*
+  Parameters: {"items"=>{"product_id"=>1, "quantity"=>4}, "product_id"=>"1", "order"=>{}}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:61:in `set_order'
+  [1m[36mOrderItem Load (0.3ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["order_id", 3], ["product_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:32:in `update_item'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:35:in `update_item'
+  [1m[36mOrderItem Update (1.7ms)[0m  [1m[33mUPDATE "order_items" SET "quantity" = $1, "updated_at" = $2 WHERE "order_items"."id" = $3[0m  [["quantity", 4], ["updated_at", "2023-11-28 06:28:40.104610"], ["id", 12]]
+  ↳ app/controllers/orders_controller.rb:35:in `update_item'
+  [1m[36mOrderItem Load (1.5ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+  ↳ app/models/order_item.rb:9:in `update_total_price'
+  [1m[36mOrder Update (0.4ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", 42.0], ["updated_at", "2023-11-28 06:28:40.110574"], ["id", 3]]
+  ↳ app/models/order_item.rb:10:in `update_total_price'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:35:in `update_item'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.2ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (0.84ms)
+Completed 201 Created in 15ms (Views: 1.3ms | ActiveRecord: 5.0ms | Allocations: 4465)
+
+
+Started PUT "/orders/item/1" for ::1 at 2023-11-28 12:03:43 +0530
+Processing by OrdersController#update_item as */*
+  Parameters: {"items"=>{"product_id"=>1, "quantity"=>3}, "product_id"=>"1", "order"=>{}}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:61:in `set_order'
+  [1m[36mOrderItem Load (0.3ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["order_id", 3], ["product_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:32:in `update_item'
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 5.8ms | Allocations: 7999)
+
+
+  
+NameError (undefined local variable or method `body' for #<OrdersController:0x0000000000f8c0>):
+  
+app/controllers/orders_controller.rb:67:in `order_params'
+app/controllers/orders_controller.rb:35:in `update_item'
+Started PUT "/orders/item/1" for ::1 at 2023-11-28 12:03:51 +0530
+Processing by OrdersController#update_item as */*
+  Parameters: {"items"=>{"product_id"=>1, "quantity"=>3}, "product_id"=>"1", "order"=>{}}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:61:in `set_order'
+  [1m[36mOrderItem Load (0.2ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["order_id", 3], ["product_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:32:in `update_item'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:35:in `update_item'
+  [1m[36mOrderItem Update (1.6ms)[0m  [1m[33mUPDATE "order_items" SET "quantity" = $1, "updated_at" = $2 WHERE "order_items"."id" = $3[0m  [["quantity", 3], ["updated_at", "2023-11-28 06:33:51.774843"], ["id", 12]]
+  ↳ app/controllers/orders_controller.rb:35:in `update_item'
+  [1m[36mOrderItem Load (0.2ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+  ↳ app/models/order_item.rb:9:in `update_total_price'
+  [1m[36mOrder Update (0.4ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", 31.5], ["updated_at", "2023-11-28 06:33:51.781249"], ["id", 3]]
+  ↳ app/models/order_item.rb:10:in `update_total_price'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:35:in `update_item'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (1.96ms)
+Completed 201 Created in 34ms (Views: 4.5ms | ActiveRecord: 9.9ms | Allocations: 12351)
+
+
+Started PUT "/orders/item/1" for ::1 at 2023-11-28 12:07:10 +0530
+  
+ActionController::RoutingError (No route matches [PUT] "/orders/item/1"):
+  
+Started PUT "/orders/item/1" for ::1 at 2023-11-28 12:07:50 +0530
+  
+ActionController::RoutingError (No route matches [PUT] "/orders/item/1"):
+  
+Started PUT "/orders_item/1" for ::1 at 2023-11-28 12:08:26 +0530
+  
+ActionController::RoutingError (No route matches [PUT] "/orders_item/1"):
+  
+Started PUT "/order_item/1" for ::1 at 2023-11-28 12:08:41 +0530
+Processing by OrdersController#update_item as */*
+  Parameters: {"items"=>{"product_id"=>1, "quantity"=>1}, "product_id"=>"1", "order"=>{}}
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:61:in `set_order'
+  [1m[36mOrderItem Load (1.6ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["order_id", 3], ["product_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:32:in `update_item'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:35:in `update_item'
+  [1m[36mOrderItem Update (2.5ms)[0m  [1m[33mUPDATE "order_items" SET "quantity" = $1, "updated_at" = $2 WHERE "order_items"."id" = $3[0m  [["quantity", 1], ["updated_at", "2023-11-28 06:38:41.351431"], ["id", 12]]
+  ↳ app/controllers/orders_controller.rb:35:in `update_item'
+  [1m[36mOrderItem Load (0.3ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+  ↳ app/models/order_item.rb:9:in `update_total_price'
+  [1m[36mOrder Update (0.5ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", 10.5], ["updated_at", "2023-11-28 06:38:41.358980"], ["id", 3]]
+  ↳ app/models/order_item.rb:10:in `update_total_price'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:35:in `update_item'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.26ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (2.11ms)
+Completed 201 Created in 47ms (Views: 5.4ms | ActiveRecord: 18.2ms | Allocations: 12345)
+
+
+Started DELETE "/order_item/1" for ::1 at 2023-11-28 12:08:47 +0530
+Processing by OrdersController#destroy_item as */*
+  Parameters: {"items"=>{"product_id"=>1, "quantity"=>1}, "product_id"=>"1", "order"=>{}}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:61:in `set_order'
+  [1m[36mOrderItem Load (0.2ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["order_id", 3], ["product_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:46:in `destroy_item'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:48:in `destroy_item'
+  [1m[36mOrderItem Destroy (2.9ms)[0m  [1m[31mDELETE FROM "order_items" WHERE "order_items"."id" = $1[0m  [["id", 12]]
+  ↳ app/controllers/orders_controller.rb:48:in `destroy_item'
+  [1m[36mOrderItem Load (0.3ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+  ↳ app/models/order_item.rb:9:in `update_total_price'
+  [1m[36mOrder Update (0.4ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", 0.0], ["updated_at", "2023-11-28 06:38:47.235453"], ["id", 3]]
+  ↳ app/models/order_item.rb:10:in `update_total_price'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:48:in `destroy_item'
+Completed 204 No Content in 17ms (Views: 0.2ms | ActiveRecord: 5.1ms | Allocations: 3669)
+
+
+Started GET "/orders" for ::1 at 2023-11-28 12:08:54 +0530
+Processing by OrdersController#index as */*
+  Parameters: {"items"=>{"product_id"=>1, "quantity"=>1}, "order"=>{}}
+  [1m[36mOrder Load (1.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:61:in `set_order'
+[active_model_serializers]   [1m[36mOrderItem Load (1.0ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+[active_model_serializers]   ↳ app/controllers/orders_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.03ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (3.49ms)
+Completed 200 OK in 8ms (Views: 2.9ms | ActiveRecord: 2.3ms | Allocations: 1974)
+
+
+Started POST "/orders" for ::1 at 2023-11-28 12:19:13 +0530
+Processing by OrdersController#create as */*
+  Parameters: {"items"=>{"product_id"=>1, "quantity"=>1, "price"=>100}, "order"=>{}}
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:14:in `create'
+  [1m[36mOrderItem Load (0.5ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["order_id", 3], ["product_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:24:in `create'
+  [1m[36mOrderItem Create (1.9ms)[0m  [1m[32mINSERT INTO "order_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 3], ["product_id", 1], ["quantity", 1], ["price", 100.0], ["created_at", "2023-11-28 06:49:13.903485"], ["updated_at", "2023-11-28 06:49:13.903485"]]
+  ↳ app/controllers/orders_controller.rb:24:in `create'
+  [1m[36mOrderItem Load (0.2ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+  ↳ app/models/order_item.rb:9:in `update_total_price'
+  [1m[36mOrder Update (0.4ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", 100.0], ["updated_at", "2023-11-28 06:49:13.909587"], ["id", 3]]
+  ↳ app/models/order_item.rb:10:in `update_total_price'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:24:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.19ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (1.71ms)
+Completed 201 Created in 37ms (Views: 3.9ms | ActiveRecord: 17.5ms | Allocations: 12970)
+
+
+Started PUT "/orders/3" for ::1 at 2023-11-28 12:19:55 +0530
+Processing by OrdersController#update as */*
+  Parameters: {"status"=>"pending", "id"=>"3", "order"=>{"status"=>"pending"}}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:32:in `update'
+[31mUnpermitted parameters: :id, :order. Context: { controller: OrdersController, action: update, request: #<ActionDispatch::Request:0x0000000107c45c90>, params: {"status"=>"pending", "controller"=>"orders", "action"=>"update", "id"=>"3", "order"=>{"status"=>"pending"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:34:in `update'
+  [1m[36mOrder Update (2.3ms)[0m  [1m[33mUPDATE "orders" SET "status" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["status", "pending"], ["updated_at", "2023-11-28 06:49:55.174013"], ["id", 3]]
+  ↳ app/controllers/orders_controller.rb:34:in `update'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:34:in `update'
+[active_model_serializers]   [1m[36mOrderItem Load (0.3ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+[active_model_serializers]   ↳ app/controllers/orders_controller.rb:35:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (3.11ms)
+Completed 201 Created in 15ms (Views: 3.3ms | ActiveRecord: 4.1ms | Allocations: 3876)
+
+
+Started GET "/orders" for ::1 at 2023-11-28 12:20:09 +0530
+Processing by OrdersController#index as */*
+  Parameters: {"status"=>"pending", "order"=>{"status"=>"pending"}}
+  [1m[36mOrder Load (1.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:74:in `set_order'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 1.6ms | Allocations: 682)
+
+
+Started GET "/orders" for ::1 at 2023-11-28 12:20:53 +0530
+Processing by OrdersController#index as */*
+  Parameters: {"status"=>"pending", "order"=>{"status"=>"pending"}}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:74:in `set_order'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 10.7ms | Allocations: 857)
+
+
+Started GET "/orders" for ::1 at 2023-11-28 12:21:14 +0530
+  
+SyntaxError (/Users/cb001/Desktop/practice/ROR/ecommerce_rails/order_service/app/controllers/orders_controller.rb:86: syntax error, unexpected end-of-input):
+  
+app/controllers/orders_controller.rb:86: syntax error, unexpected end-of-input
+Started GET "/orders" for ::1 at 2023-11-28 12:21:20 +0530
+  
+SyntaxError (/Users/cb001/Desktop/practice/ROR/ecommerce_rails/order_service/app/controllers/orders_controller.rb:86: syntax error, unexpected end-of-input):
+  
+app/controllers/orders_controller.rb:86: syntax error, unexpected end-of-input
+Started GET "/orders" for ::1 at 2023-11-28 12:22:02 +0530
+Processing by OrdersController#index as */*
+  Parameters: {"status"=>"pending", "order"=>{"status"=>"pending"}}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:74:in `set_order'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 2.9ms | Allocations: 854)
+
+
+Started GET "/orders" for ::1 at 2023-11-28 12:22:23 +0530
+Processing by OrdersController#index as */*
+  Parameters: {"status"=>"pending", "order"=>{"status"=>"pending"}}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:70:in `set_order'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Class (0.15ms)
+Completed 200 OK in 9ms (Views: 5.6ms | ActiveRecord: 1.9ms | Allocations: 1523)
+
+
+Started GET "/orders" for ::1 at 2023-11-28 12:22:41 +0530
+Processing by OrdersController#index as */*
+  Parameters: {"status"=>"pending", "order"=>{"status"=>"pending"}}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:74:in `set_order'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 1.7ms | Allocations: 853)
+
+
+Started GET "/orders" for ::1 at 2023-11-28 12:23:09 +0530
+Processing by OrdersController#index as */*
+  Parameters: {"status"=>"pending", "order"=>{"status"=>"pending"}}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:74:in `set_order'
+[active_model_serializers]   [1m[36mOrderItem Load (0.3ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+[active_model_serializers]   ↳ app/controllers/orders_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.22ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (15.38ms)
+Completed 200 OK in 24ms (Views: 14.3ms | ActiveRecord: 8.0ms | Allocations: 9475)
+
+
+Started GET "/orders" for ::1 at 2023-11-28 12:23:14 +0530
+Processing by OrdersController#index as */*
+  Parameters: {"status"=>"pending", "order"=>{"status"=>"pending"}}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:74:in `set_order'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 2.1ms | Allocations: 854)
+
+
+Started GET "/orders" for ::1 at 2023-11-28 12:24:00 +0530
+  
+SyntaxError (/Users/cb001/Desktop/practice/ROR/ecommerce_rails/order_service/app/controllers/orders_controller.rb:87: syntax error, unexpected end-of-input):
+  
+app/controllers/orders_controller.rb:87: syntax error, unexpected end-of-input
+Started GET "/orders" for ::1 at 2023-11-28 12:24:12 +0530
+Processing by OrdersController#index as */*
+  Parameters: {"status"=>"pending", "order"=>{"status"=>"pending"}}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:75:in `set_order'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 3.5ms | Allocations: 854)
+
+
+Started GET "/orders" for ::1 at 2023-11-28 12:24:54 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:74:in `set_order'
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 1.4ms | Allocations: 2217)
+
+
+Started GET "/orders" for ::1 at 2023-11-28 12:37:59 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:74:in `set_order'
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 11.4ms | Allocations: 14611)
+
+
+Started GET "/orders" for ::1 at 2023-11-28 12:38:06 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:74:in `set_order'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.4ms | Allocations: 577)
+
+
+Started GET "/orders" for ::1 at 2023-11-28 12:38:23 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:74:in `set_order'
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (10.46ms)
+Completed 500 Internal Server Error in 85ms (ActiveRecord: 13.3ms | Allocations: 27314)
+
+
+  
+SyntaxError (/Users/cb001/Desktop/practice/ROR/ecommerce_rails/order_service/app/serializers/order_item_serializer.rb:2: syntax error, unexpected ':', expecting `end' or dummy end
+...product_id, :quantity, :price :info
+...                              ^
+):
+  
+app/serializers/order_item_serializer.rb:2: syntax error, unexpected ':', expecting `end' or dummy end
+app/serializers/order_serializer.rb:5:in `items'
+app/controllers/orders_controller.rb:7:in `index'
+Started GET "/orders" for ::1 at 2023-11-28 12:38:45 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:74:in `set_order'
+[active_model_serializers]   [1m[36mOrderItem Load (0.6ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+[active_model_serializers]   ↳ app/controllers/orders_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (417.38ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (444.42ms)
+Completed 200 OK in 459ms (Views: 442.8ms | ActiveRecord: 7.7ms | Allocations: 18146)
+
+
+Started GET "/orders" for ::1 at 2023-11-28 12:39:48 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:74:in `set_order'
+[active_model_serializers]   [1m[36mOrderItem Load (0.5ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+[active_model_serializers]   ↳ app/controllers/orders_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (8.55ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (12.56ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.9ms | Allocations: 2343)
+
+
+  
+Errno::ECONNREFUSED (Failed to open TCP connection to localhost:3001 (Connection refused - connect(2) for "localhost" port 3001)):
+  
+app/serializers/order_item_serializer.rb:5:in `info'
+app/controllers/orders_controller.rb:7:in `index'
+Started GET "/orders" for ::1 at 2023-11-28 12:40:02 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:74:in `set_order'
+[active_model_serializers]   [1m[36mOrderItem Load (0.3ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+[active_model_serializers]   ↳ app/controllers/orders_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (384.65ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (387.23ms)
+Completed 200 OK in 389ms (Views: 387.3ms | ActiveRecord: 0.6ms | Allocations: 2889)
+
+
+Started GET "/products" for ::1 at 2023-11-28 12:40:16 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/products"):
+  
+Started GET "/orders" for ::1 at 2023-11-28 12:41:22 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:74:in `set_order'
+[active_model_serializers]   [1m[36mOrderItem Load (0.7ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+[active_model_serializers]   ↳ app/controllers/orders_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (22.08ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (25.93ms)
+Completed 200 OK in 29ms (Views: 25.7ms | ActiveRecord: 1.3ms | Allocations: 2826)
+
+
+Started GET "/orders" for ::1 at 2023-11-28 12:43:11 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:74:in `set_order'
+[active_model_serializers]   [1m[36mOrderItem Load (0.2ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+[active_model_serializers]   ↳ app/controllers/orders_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.03ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (21.48ms)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 11.3ms | Allocations: 11484)
+
+
+  
+NameError (undefined local variable or method `product_id' for #<OrderItemSerializer:0x000000011446ec80 @object=#<OrderItem id: 13, order_id: 3, product_id: 1, quantity: 1, price: 100.0, created_at: "2023-11-28 06:49:13.903485000 +0000", updated_at: "2023-11-28 06:49:13.903485000 +0000">, @instance_options={}, @root=nil, @scope=nil, @instance_reflections={}, @attributes=nil>):
+  
+app/serializers/order_item_serializer.rb:5:in `info'
+app/controllers/orders_controller.rb:7:in `index'
+Started GET "/orders" for ::1 at 2023-11-28 12:43:19 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:74:in `set_order'
+[active_model_serializers]   [1m[36mOrderItem Load (0.2ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+[active_model_serializers]   ↳ app/controllers/orders_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.96ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (26.7ms)
+Completed 200 OK in 37ms (Views: 25.4ms | ActiveRecord: 5.1ms | Allocations: 11945)
+
+
+Started PUT "/orders/3" for ::1 at 2023-11-28 12:45:19 +0530
+Processing by OrdersController#update as */*
+  Parameters: {"status"=>"cart", "id"=>"3", "order"=>{"status"=>"cart"}}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:32:in `update'
+[31mUnpermitted parameters: :id, :order. Context: { controller: OrdersController, action: update, request: #<ActionDispatch::Request:0x0000000114b2c950>, params: {"status"=>"cart", "controller"=>"orders", "action"=>"update", "id"=>"3", "order"=>{"status"=>"cart"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:34:in `update'
+  [1m[36mOrder Update (2.5ms)[0m  [1m[33mUPDATE "orders" SET "status" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["status", "cart"], ["updated_at", "2023-11-28 07:15:20.132328"], ["id", 3]]
+  ↳ app/controllers/orders_controller.rb:34:in `update'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:34:in `update'
+[active_model_serializers]   [1m[36mOrderItem Load (0.2ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+[active_model_serializers]   ↳ app/controllers/orders_controller.rb:35:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (65.74ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (80.69ms)
+Completed 201 Created in 100ms (Views: 80.0ms | ActiveRecord: 12.1ms | Allocations: 12834)
+
+
+Started GET "/orders" for ::1 at 2023-11-28 12:45:30 +0530
+Processing by OrdersController#index as */*
+  Parameters: {"status"=>"cart", "order"=>{"status"=>"cart"}}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:74:in `set_order'
+[active_model_serializers]   [1m[36mOrderItem Load (0.2ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+[active_model_serializers]   ↳ app/controllers/orders_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (17.17ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (19.98ms)
+Completed 200 OK in 23ms (Views: 20.2ms | ActiveRecord: 0.5ms | Allocations: 2985)
+
+
+Started GET "/orders" for ::1 at 2023-11-28 12:55:16 +0530
+Processing by OrdersController#index as */*
+  Parameters: {"status"=>"cart", "order"=>{"status"=>"cart"}}
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:74:in `set_order'
+[active_model_serializers]   [1m[36mOrderItem Load (0.5ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+[active_model_serializers]   ↳ app/controllers/orders_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (182.65ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (196.73ms)
+Completed 200 OK in 208ms (Views: 198.3ms | ActiveRecord: 10.4ms | Allocations: 10422)
+
+
+Started GET "/orders" for ::1 at 2023-11-28 12:56:38 +0530
+Processing by OrdersController#index as */*
+  Parameters: {"status"=>"cart", "order"=>{"status"=>"cart"}}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:74:in `set_order'
+[active_model_serializers]   [1m[36mOrderItem Load (0.2ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+[active_model_serializers]   ↳ app/controllers/orders_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (29.61ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (43.61ms)
+Completed 200 OK in 53ms (Views: 41.8ms | ActiveRecord: 15.9ms | Allocations: 10436)
+
+
+Started GET "/orders" for ::1 at 2023-11-28 12:56:57 +0530
+Processing by OrdersController#index as */*
+  Parameters: {"status"=>"cart", "order"=>{"status"=>"cart"}}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "cart"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:74:in `set_order'
+[active_model_serializers]   [1m[36mOrderItem Load (0.2ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."order_id" = $1[0m  [["order_id", 3]]
+[active_model_serializers]   ↳ app/controllers/orders_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (21.21ms)
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (33.75ms)
+Completed 200 OK in 40ms (Views: 32.3ms | ActiveRecord: 5.3ms | Allocations: 10459)
+
+
+Started GET "/orders" for ::1 at 2023-11-28 14:46:33 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#index as */*
+  Parameters: {"status"=>"cart", "order"=>{"status"=>"cart"}}
+Completed 404 Not Found in 3ms (ActiveRecord: 19.7ms | Allocations: 471)
+
+
+  
+AbstractController::ActionNotFound (The set_order_item action could not be found for the :set_order
+callback on OrdersController, but it is listed in the controller's
+:only option.
+
+Raising for missing callback actions is a new default in Rails 7.1, if you'd
+like to turn this off you can delete the option from the environment configurations
+or set `config.action_controller.raise_on_missing_callback_actions` to `false`.
+):
+  
+actionpack (7.1.2) lib/abstract_controller/callbacks.rb:62:in `match?'
+activesupport (7.1.2) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+activesupport (7.1.2) lib/active_support/callbacks.rb:182:in `block (2 levels) in halting_and_conditional'
+activesupport (7.1.2) lib/active_support/callbacks.rb:182:in `all?'
+activesupport (7.1.2) lib/active_support/callbacks.rb:182:in `block in halting_and_conditional'
+activesupport (7.1.2) lib/active_support/callbacks.rb:598:in `block in invoke_before'
+activesupport (7.1.2) lib/active_support/callbacks.rb:598:in `each'
+activesupport (7.1.2) lib/active_support/callbacks.rb:598:in `invoke_before'
+activesupport (7.1.2) lib/active_support/callbacks.rb:109:in `run_callbacks'
+actionpack (7.1.2) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.2) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.2) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.2) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.2) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.2) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.2) lib/abstract_controller/base.rb:160:in `process'
+actionpack (7.1.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.8) lib/rack/etag.rb:29:in `call'
+rack (3.0.8) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.8) lib/rack/head.rb:15:in `call'
+activerecord (7.1.2) lib/active_record/migration.rb:654:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.2) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/orders" for ::1 at 2023-11-28 14:47:01 +0530
+Processing by OrdersController#index as */*
+  Parameters: {"status"=>"cart", "order"=>{"status"=>"cart"}}
+Completed 404 Not Found in 0ms (ActiveRecord: 2.4ms | Allocations: 236)
+
+
+  
+AbstractController::ActionNotFound (The set_order_item action could not be found for the :set_order
+callback on OrdersController, but it is listed in the controller's
+:only option.
+
+Raising for missing callback actions is a new default in Rails 7.1, if you'd
+like to turn this off you can delete the option from the environment configurations
+or set `config.action_controller.raise_on_missing_callback_actions` to `false`.
+):
+  
+actionpack (7.1.2) lib/abstract_controller/callbacks.rb:62:in `match?'
+activesupport (7.1.2) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+activesupport (7.1.2) lib/active_support/callbacks.rb:182:in `block (2 levels) in halting_and_conditional'
+activesupport (7.1.2) lib/active_support/callbacks.rb:182:in `all?'
+activesupport (7.1.2) lib/active_support/callbacks.rb:182:in `block in halting_and_conditional'
+activesupport (7.1.2) lib/active_support/callbacks.rb:598:in `block in invoke_before'
+activesupport (7.1.2) lib/active_support/callbacks.rb:598:in `each'
+activesupport (7.1.2) lib/active_support/callbacks.rb:598:in `invoke_before'
+activesupport (7.1.2) lib/active_support/callbacks.rb:109:in `run_callbacks'
+actionpack (7.1.2) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.2) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.2) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.2) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.2) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.2) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.2) lib/abstract_controller/base.rb:160:in `process'
+actionpack (7.1.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.8) lib/rack/etag.rb:29:in `call'
+rack (3.0.8) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.8) lib/rack/head.rb:15:in `call'
+activerecord (7.1.2) lib/active_record/migration.rb:654:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.2) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/orders" for ::1 at 2023-11-28 14:47:14 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#index as */*
+  Parameters: {"status"=>"cart", "order"=>{"status"=>"cart"}}
+Completed 404 Not Found in 1ms (ActiveRecord: 8.9ms | Allocations: 474)
+
+
+  
+AbstractController::ActionNotFound (The set_order_item action could not be found for the :set_order
+callback on OrdersController, but it is listed in the controller's
+:only option.
+
+Raising for missing callback actions is a new default in Rails 7.1, if you'd
+like to turn this off you can delete the option from the environment configurations
+or set `config.action_controller.raise_on_missing_callback_actions` to `false`.
+):
+  
+actionpack (7.1.2) lib/abstract_controller/callbacks.rb:62:in `match?'
+activesupport (7.1.2) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+activesupport (7.1.2) lib/active_support/callbacks.rb:182:in `block (2 levels) in halting_and_conditional'
+activesupport (7.1.2) lib/active_support/callbacks.rb:182:in `all?'
+activesupport (7.1.2) lib/active_support/callbacks.rb:182:in `block in halting_and_conditional'
+activesupport (7.1.2) lib/active_support/callbacks.rb:598:in `block in invoke_before'
+activesupport (7.1.2) lib/active_support/callbacks.rb:598:in `each'
+activesupport (7.1.2) lib/active_support/callbacks.rb:598:in `invoke_before'
+activesupport (7.1.2) lib/active_support/callbacks.rb:109:in `run_callbacks'
+actionpack (7.1.2) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.2) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.2) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.2) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.2) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.2) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.2) lib/abstract_controller/base.rb:160:in `process'
+actionpack (7.1.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.8) lib/rack/etag.rb:29:in `call'
+rack (3.0.8) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.8) lib/rack/head.rb:15:in `call'
+activerecord (7.1.2) lib/active_record/migration.rb:654:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.2) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/orders" for ::1 at 2023-11-28 14:47:44 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#index as */*
+  Parameters: {"status"=>"cart", "order"=>{"status"=>"cart"}}
+Completed 404 Not Found in 1ms (ActiveRecord: 8.5ms | Allocations: 474)
+
+
+  
+AbstractController::ActionNotFound (The set_order_item action could not be found for the :set_order
+callback on OrdersController, but it is listed in the controller's
+:only option.
+
+Raising for missing callback actions is a new default in Rails 7.1, if you'd
+like to turn this off you can delete the option from the environment configurations
+or set `config.action_controller.raise_on_missing_callback_actions` to `false`.
+):
+  
+actionpack (7.1.2) lib/abstract_controller/callbacks.rb:62:in `match?'
+activesupport (7.1.2) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+activesupport (7.1.2) lib/active_support/callbacks.rb:182:in `block (2 levels) in halting_and_conditional'
+activesupport (7.1.2) lib/active_support/callbacks.rb:182:in `all?'
+activesupport (7.1.2) lib/active_support/callbacks.rb:182:in `block in halting_and_conditional'
+activesupport (7.1.2) lib/active_support/callbacks.rb:598:in `block in invoke_before'
+activesupport (7.1.2) lib/active_support/callbacks.rb:598:in `each'
+activesupport (7.1.2) lib/active_support/callbacks.rb:598:in `invoke_before'
+activesupport (7.1.2) lib/active_support/callbacks.rb:109:in `run_callbacks'
+actionpack (7.1.2) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.2) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.2) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.2) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.2) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.2) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.2) lib/abstract_controller/base.rb:160:in `process'
+actionpack (7.1.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.8) lib/rack/etag.rb:29:in `call'
+rack (3.0.8) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.8) lib/rack/head.rb:15:in `call'
+activerecord (7.1.2) lib/active_record/migration.rb:654:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.2) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'

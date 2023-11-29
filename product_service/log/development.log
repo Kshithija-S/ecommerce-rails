@@ -1607,3 +1607,388 @@ app/controllers/products_controller.rb:58:in `block in attach_images'
 app/controllers/products_controller.rb:57:in `each'
 app/controllers/products_controller.rb:57:in `attach_images'
 app/controllers/products_controller.rb:20:in `create'
+Started GET "/products/product_id" for ::1 at 2023-11-28 12:38:46 +0530
+  
+ActiveRecord::NoDatabaseError (We could not find your database: product_dev. Available database configurations can be found in config/database.yml file.
+
+To resolve this error:
+
+- Did you create the database for this app, or delete it? You may need to create your database.
+- Has the database name changed? Check your database.yml config has the correct database name.
+
+To create your database, run:
+
+        bin/rails db:create
+):
+  
+activerecord (7.1.2) lib/active_record/connection_adapters/postgresql_adapter.rb:74:in `rescue in new_client'
+activerecord (7.1.2) lib/active_record/connection_adapters/postgresql_adapter.rb:68:in `new_client'
+activerecord (7.1.2) lib/active_record/connection_adapters/postgresql_adapter.rb:980:in `connect'
+activerecord (7.1.2) lib/active_record/connection_adapters/postgresql_adapter.rb:992:in `reconnect'
+activerecord (7.1.2) lib/active_record/connection_adapters/abstract_adapter.rb:685:in `block in reconnect!'
+activesupport (7.1.2) lib/active_support/concurrency/null_lock.rb:9:in `synchronize'
+activerecord (7.1.2) lib/active_record/connection_adapters/abstract_adapter.rb:684:in `reconnect!'
+activerecord (7.1.2) lib/active_record/connection_adapters/abstract_adapter.rb:788:in `verify!'
+activerecord (7.1.2) lib/active_record/connection_adapters/abstract_adapter.rb:795:in `connect!'
+activerecord (7.1.2) lib/active_record/connection_adapters/abstract_adapter.rb:1001:in `block in with_raw_connection'
+activesupport (7.1.2) lib/active_support/concurrency/null_lock.rb:9:in `synchronize'
+activerecord (7.1.2) lib/active_record/connection_adapters/abstract_adapter.rb:1000:in `with_raw_connection'
+activerecord (7.1.2) lib/active_record/connection_adapters/abstract_adapter.rb:1113:in `valid_raw_connection'
+activerecord (7.1.2) lib/active_record/connection_adapters/postgresql_adapter.rb:616:in `get_database_version'
+activerecord (7.1.2) lib/active_record/connection_adapters/schema_cache.rb:374:in `database_version'
+activerecord (7.1.2) lib/active_record/connection_adapters/schema_cache.rb:70:in `database_version'
+activerecord (7.1.2) lib/active_record/connection_adapters/schema_cache.rb:200:in `database_version'
+activerecord (7.1.2) lib/active_record/connection_adapters/abstract_adapter.rb:871:in `database_version'
+activerecord (7.1.2) lib/active_record/connection_adapters/postgresql_adapter.rb:644:in `check_version'
+activerecord (7.1.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:675:in `new_connection'
+activerecord (7.1.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:720:in `checkout_new_connection'
+activerecord (7.1.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:699:in `try_to_checkout_new_connection'
+activerecord (7.1.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:657:in `acquire_connection'
+activerecord (7.1.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `checkout'
+activerecord (7.1.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `connection'
+activerecord (7.1.2) lib/active_record/migration/pending_migration_connection.rb:8:in `establish_temporary_connection'
+activerecord (7.1.2) lib/active_record/migration.rb:773:in `block in pending_migrations'
+activerecord (7.1.2) lib/active_record/migration.rb:772:in `each'
+activerecord (7.1.2) lib/active_record/migration.rb:772:in `pending_migrations'
+activerecord (7.1.2) lib/active_record/migration.rb:751:in `check_pending_migrations'
+activerecord (7.1.2) lib/active_record/migration.rb:643:in `block (2 levels) in call'
+activesupport (7.1.2) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (7.1.2) lib/active_record/migration.rb:648:in `block in call'
+activerecord (7.1.2) lib/active_record/migration.rb:640:in `synchronize'
+activerecord (7.1.2) lib/active_record/migration.rb:640:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.2) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+  [1m[35m (275.0ms)[0m  [1m[35mCREATE DATABASE "product_dev" ENCODING = 'unicode'[0m
+  [1m[35m (13.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8315252677181543730)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (1.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-28 07:09:40.721513', '2023-11-28 07:09:40.721516') RETURNING "key"[0m
+Migrating to CreateProducts (20231123115549)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" character varying, "description" character varying, "price" float, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231123115549') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActiveStorageTables (20231124084231)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "service_name" character varying NOT NULL, "byte_size" bigint NOT NULL, "checksum" character varying, "created_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" bigserial primary key, "blob_id" bigint NOT NULL, "variation_digest" character varying NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (2.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231124084231') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8315252677181543730)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (6.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (1.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Heavy Duty Aluminum Wallet"], ["description", "Sports & Grocery\nBrand: Nike\nMaterial: Paper"], ["price", 50.05], ["created_at", "2023-11-28 07:09:41.310580"], ["updated_at", "2023-11-28 07:09:41.310580"]]
+  [1m[36mActiveStorage::Blob Create (1.0ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "62gjwo6uailvuzy7le070zu7ciqi"], ["filename", "image.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 153410], ["checksum", "4c9NqZvVxsXcDZwAwSJPpA=="], ["created_at", "2023-11-28 07:09:41.318753"]]
+  [1m[36mActiveStorage::Attachment Create (1.6ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "images"], ["record_type", "Product"], ["record_id", 1], ["blob_id", 1], ["created_at", "2023-11-28 07:09:41.323166"]]
+  [1m[36mProduct Update (0.5ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = $1 WHERE "products"."id" = $2[0m  [["updated_at", "2023-11-28 07:09:41.327125"], ["id", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+[36m  Disk Storage (1.6ms) [0m[32mUploaded file to key: 62gjwo6uailvuzy7le070zu7ciqi (checksum: 4c9NqZvVxsXcDZwAwSJPpA==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: aca6d9e4-0d44-40dd-ba83-8364d2bbbe4c) to Async(default) with arguments: #<GlobalID:0x000000011099bb30 @uri=#<URI::GID gid://product-service/ActiveStorage::Blob/1>>
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (1.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Synergistic Aluminum Wallet"], ["description", "Health, Clothing & Toys\nBrand: Samsung\nMaterial: Rubber"], ["price", 64.15], ["created_at", "2023-11-28 07:09:41.359240"], ["updated_at", "2023-11-28 07:09:41.359240"]]
+  [1m[36mActiveStorage::Blob Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "xy6hh5a6g5kosbhzg1t5y2x5r91t"], ["filename", "image.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 153410], ["checksum", "4c9NqZvVxsXcDZwAwSJPpA=="], ["created_at", "2023-11-28 07:09:41.362895"]]
+  [1m[36mActiveStorage::Attachment Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "images"], ["record_type", "Product"], ["record_id", 2], ["blob_id", 2], ["created_at", "2023-11-28 07:09:41.364882"]]
+  [1m[36mProduct Update (0.2ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = $1 WHERE "products"."id" = $2[0m  [["updated_at", "2023-11-28 07:09:41.366608"], ["id", 2]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+[36m  Disk Storage (2.1ms) [0m[32mUploaded file to key: xy6hh5a6g5kosbhzg1t5y2x5r91t (checksum: 4c9NqZvVxsXcDZwAwSJPpA==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 1c34b964-e38b-496f-a500-ec47dd09a310) to Async(default) with arguments: #<GlobalID:0x0000000110ab5cf0 @uri=#<URI::GID gid://product-service/ActiveStorage::Blob/2>>
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (1.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Ergonomic Iron Bag"], ["description", "Clothing, Beauty & Grocery\nBrand: Dell\nMaterial: Granite"], ["price", 31.12], ["created_at", "2023-11-28 07:09:41.374828"], ["updated_at", "2023-11-28 07:09:41.374828"]]
+  [1m[36mActiveStorage::Blob Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "emwn07l9y8l5h2yb9prypm5ur5d4"], ["filename", "image.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 153410], ["checksum", "4c9NqZvVxsXcDZwAwSJPpA=="], ["created_at", "2023-11-28 07:09:41.378083"]]
+  [1m[36mActiveStorage::Attachment Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "images"], ["record_type", "Product"], ["record_id", 3], ["blob_id", 3], ["created_at", "2023-11-28 07:09:41.379912"]]
+  [1m[36mProduct Update (0.3ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = $1 WHERE "products"."id" = $2[0m  [["updated_at", "2023-11-28 07:09:41.381661"], ["id", 3]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+[36m  Disk Storage (2.2ms) [0m[32mUploaded file to key: emwn07l9y8l5h2yb9prypm5ur5d4 (checksum: 4c9NqZvVxsXcDZwAwSJPpA==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 97fab9fa-8247-41c7-bc8a-d7b4524abdcb) to Async(default) with arguments: #<GlobalID:0x0000000110cdf710 @uri=#<URI::GID gid://product-service/ActiveStorage::Blob/3>>
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (1.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Small Aluminum Watch"], ["description", "Movies, Games & Computers\nBrand: Adidas\nMaterial: Plastic"], ["price", 41.51], ["created_at", "2023-11-28 07:09:41.389589"], ["updated_at", "2023-11-28 07:09:41.389589"]]
+  [1m[36mActiveStorage::Blob Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "l393rtbecdxy0ox5957r3enb5s30"], ["filename", "image.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 153410], ["checksum", "4c9NqZvVxsXcDZwAwSJPpA=="], ["created_at", "2023-11-28 07:09:41.392801"]]
+  [1m[36mActiveStorage::Attachment Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "images"], ["record_type", "Product"], ["record_id", 4], ["blob_id", 4], ["created_at", "2023-11-28 07:09:41.394578"]]
+  [1m[36mProduct Update (0.2ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = $1 WHERE "products"."id" = $2[0m  [["updated_at", "2023-11-28 07:09:41.396111"], ["id", 4]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+[36m  Disk Storage (1.7ms) [0m[32mUploaded file to key: l393rtbecdxy0ox5957r3enb5s30 (checksum: 4c9NqZvVxsXcDZwAwSJPpA==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 02c0af0e-5193-4e39-bb01-852cdf49821b) to Async(default) with arguments: #<GlobalID:0x0000000110e19e50 @uri=#<URI::GID gid://product-service/ActiveStorage::Blob/4>>
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (1.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Enormous Rubber Wallet"], ["description", "Grocery\nBrand: Sony\nMaterial: Copper"], ["price", 12.44], ["created_at", "2023-11-28 07:09:41.403315"], ["updated_at", "2023-11-28 07:09:41.403315"]]
+  [1m[36mActiveStorage::Blob Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "xgc2aur172k0nmre6mzhav1d3msd"], ["filename", "image.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 153410], ["checksum", "4c9NqZvVxsXcDZwAwSJPpA=="], ["created_at", "2023-11-28 07:09:41.406619"]]
+  [1m[36mActiveStorage::Attachment Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "images"], ["record_type", "Product"], ["record_id", 5], ["blob_id", 5], ["created_at", "2023-11-28 07:09:41.408387"]]
+  [1m[36mProduct Update (0.3ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = $1 WHERE "products"."id" = $2[0m  [["updated_at", "2023-11-28 07:09:41.409958"], ["id", 5]]
+  [1m[36mTRANSACTION (11.5ms)[0m  [1m[35mCOMMIT[0m
+[36m  Disk Storage (3.0ms) [0m[32mUploaded file to key: xgc2aur172k0nmre6mzhav1d3msd (checksum: 4c9NqZvVxsXcDZwAwSJPpA==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: b156dbe9-e791-4f8a-9cc9-04abcd37c181) to Async(default) with arguments: #<GlobalID:0x0000000110596760 @uri=#<URI::GID gid://product-service/ActiveStorage::Blob/5>>
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (1.7ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Gorgeous Silk Keyboard"], ["description", "Grocery & Health\nBrand: LG\nMaterial: Granite"], ["price", 5.76], ["created_at", "2023-11-28 07:09:41.430800"], ["updated_at", "2023-11-28 07:09:41.430800"]]
+  [1m[36mActiveStorage::Blob Create (0.5ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "nax3jt3manp5voph02au7ydu5lnm"], ["filename", "image.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 153410], ["checksum", "4c9NqZvVxsXcDZwAwSJPpA=="], ["created_at", "2023-11-28 07:09:41.434777"]]
+  [1m[36mActiveStorage::Attachment Create (1.0ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "images"], ["record_type", "Product"], ["record_id", 6], ["blob_id", 6], ["created_at", "2023-11-28 07:09:41.436941"]]
+  [1m[36mProduct Update (0.3ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = $1 WHERE "products"."id" = $2[0m  [["updated_at", "2023-11-28 07:09:41.439544"], ["id", 6]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+[36m  Disk Storage (1.8ms) [0m[32mUploaded file to key: nax3jt3manp5voph02au7ydu5lnm (checksum: 4c9NqZvVxsXcDZwAwSJPpA==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 9dab83a3-68cd-47e5-b6a4-bb8727ef8b9d) to Async(default) with arguments: #<GlobalID:0x00000001106987d0 @uri=#<URI::GID gid://product-service/ActiveStorage::Blob/6>>
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (2.0ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Fantastic Copper Car"], ["description", "Health\nBrand: Apple\nMaterial: Leather"], ["price", 63.86], ["created_at", "2023-11-28 07:09:41.447486"], ["updated_at", "2023-11-28 07:09:41.447486"]]
+  [1m[36mActiveStorage::Blob Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "iwao3t44qdme5oc3h63j7v5ywngu"], ["filename", "image.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 153410], ["checksum", "4c9NqZvVxsXcDZwAwSJPpA=="], ["created_at", "2023-11-28 07:09:41.451090"]]
+  [1m[36mActiveStorage::Attachment Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "images"], ["record_type", "Product"], ["record_id", 7], ["blob_id", 7], ["created_at", "2023-11-28 07:09:41.452848"]]
+  [1m[36mProduct Update (0.3ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = $1 WHERE "products"."id" = $2[0m  [["updated_at", "2023-11-28 07:09:41.454782"], ["id", 7]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+[36m  Disk Storage (2.2ms) [0m[32mUploaded file to key: iwao3t44qdme5oc3h63j7v5ywngu (checksum: 4c9NqZvVxsXcDZwAwSJPpA==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 3012afaf-2e4c-4ce4-bfa7-f564c45b28a3) to Async(default) with arguments: #<GlobalID:0x000000011079f750 @uri=#<URI::GID gid://product-service/ActiveStorage::Blob/7>>
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (1.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Synergistic Iron Pants"], ["description", "Outdoors\nBrand: Apple\nMaterial: Granite"], ["price", 85.15], ["created_at", "2023-11-28 07:09:41.462716"], ["updated_at", "2023-11-28 07:09:41.462716"]]
+  [1m[36mActiveStorage::Blob Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "s7e9mpyqxs2wdi6oodup720nlavz"], ["filename", "image.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 153410], ["checksum", "4c9NqZvVxsXcDZwAwSJPpA=="], ["created_at", "2023-11-28 07:09:41.465863"]]
+  [1m[36mActiveStorage::Attachment Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "images"], ["record_type", "Product"], ["record_id", 8], ["blob_id", 8], ["created_at", "2023-11-28 07:09:41.467606"]]
+  [1m[36mProduct Update (0.3ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = $1 WHERE "products"."id" = $2[0m  [["updated_at", "2023-11-28 07:09:41.469296"], ["id", 8]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+[36m  Disk Storage (1.7ms) [0m[32mUploaded file to key: s7e9mpyqxs2wdi6oodup720nlavz (checksum: 4c9NqZvVxsXcDZwAwSJPpA==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 1b6422f1-393f-427e-9523-97484f8ff349) to Async(default) with arguments: #<GlobalID:0x0000000110994b28 @uri=#<URI::GID gid://product-service/ActiveStorage::Blob/8>>
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (1.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Aerodynamic Bronze Keyboard"], ["description", "Toys, Industrial & Outdoors\nBrand: Beats\nMaterial: Iron"], ["price", 56.04], ["created_at", "2023-11-28 07:09:41.477072"], ["updated_at", "2023-11-28 07:09:41.477072"]]
+  [1m[36mActiveStorage::Blob Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "da3yrvwjny3ud859y1s8dbjveelu"], ["filename", "image.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 153410], ["checksum", "4c9NqZvVxsXcDZwAwSJPpA=="], ["created_at", "2023-11-28 07:09:41.481074"]]
+  [1m[36mActiveStorage::Attachment Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "images"], ["record_type", "Product"], ["record_id", 9], ["blob_id", 9], ["created_at", "2023-11-28 07:09:41.482975"]]
+  [1m[36mProduct Update (0.3ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = $1 WHERE "products"."id" = $2[0m  [["updated_at", "2023-11-28 07:09:41.484811"], ["id", 9]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+[36m  Disk Storage (2.0ms) [0m[32mUploaded file to key: da3yrvwjny3ud859y1s8dbjveelu (checksum: 4c9NqZvVxsXcDZwAwSJPpA==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: aa341e75-88c1-4d55-99d8-baaa9a4252ee) to Async(default) with arguments: #<GlobalID:0x0000000110a30ac8 @uri=#<URI::GID gid://product-service/ActiveStorage::Blob/9>>
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (1.7ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Fantastic Rubber Plate"], ["description", "Industrial & Shoes\nBrand: LG\nMaterial: Plastic"], ["price", 23.53], ["created_at", "2023-11-28 07:09:41.493516"], ["updated_at", "2023-11-28 07:09:41.493516"]]
+  [1m[36mActiveStorage::Blob Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "l6e7jryo98zb3mzw3c7qmjb0iorl"], ["filename", "image.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 153410], ["checksum", "4c9NqZvVxsXcDZwAwSJPpA=="], ["created_at", "2023-11-28 07:09:41.496942"]]
+  [1m[36mActiveStorage::Attachment Create (0.5ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "images"], ["record_type", "Product"], ["record_id", 10], ["blob_id", 10], ["created_at", "2023-11-28 07:09:41.500114"]]
+  [1m[36mProduct Update (0.2ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = $1 WHERE "products"."id" = $2[0m  [["updated_at", "2023-11-28 07:09:41.502173"], ["id", 10]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+[36m  Disk Storage (2.0ms) [0m[32mUploaded file to key: l6e7jryo98zb3mzw3c7qmjb0iorl (checksum: 4c9NqZvVxsXcDZwAwSJPpA==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 8bf30017-1422-4442-b5db-1da444dd996e) to Async(default) with arguments: #<GlobalID:0x0000000110ed9e30 @uri=#<URI::GID gid://product-service/ActiveStorage::Blob/10>>
+  [1m[36mProduct Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+Started GET "/products/product_id" for ::1 at 2023-11-28 12:40:03 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"product_id"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:51:in `set_product'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Filter chain halted as :set_product rendered or redirected
+Completed 404 Not Found in 52ms (Views: 5.6ms | ActiveRecord: 10.3ms | Allocations: 13680)
+
+
+Started GET "/products" for ::1 at 2023-11-28 12:40:36 +0530
+Processing by ProductsController#index as */*
+  Parameters: {"name"=>"Product Na", "description"=>"Product Description", "price"=>"10.99", "images"=>[#<ActionDispatch::Http::UploadedFile:0x000000010a574440 @tempfile=#<Tempfile:/var/folders/g2/yc978xgj5217w5yk09l8l_s80000gp/T/RackMultipart20231128-19235-vjcvci.png>, @content_type="image/png", @original_filename="lunch-box.png", @headers="Content-Disposition: form-data; name=\"images[]\"; filename=\"lunch-box.png\"\r\nContent-Type: image/png\r\n">]}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 1], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `block in image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 2], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `block in image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 3], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `block in image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 4], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `block in image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 5], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `block in image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 6], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `block in image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 7], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `block in image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 8], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `block in image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 9], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `block in image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 10], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `block in image_urls'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (96.22ms)
+Completed 200 OK in 140ms (Views: 115.6ms | ActiveRecord: 10.5ms | Allocations: 54786)
+
+
+Started GET "/products/product_id" for ::1 at 2023-11-28 12:41:22 +0530
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"product_id"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:51:in `set_product'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Filter chain halted as :set_product rendered or redirected
+Completed 404 Not Found in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 607)
+
+
+Started GET "/products/product_id" for ::1 at 2023-11-28 12:43:19 +0530
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"product_id"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:51:in `set_product'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Filter chain halted as :set_product rendered or redirected
+Completed 404 Not Found in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 588)
+
+
+Started GET "/products/product_id" for ::1 at 2023-11-28 12:45:20 +0530
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"product_id"}
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:51:in `set_product'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.6ms)
+Filter chain halted as :set_product rendered or redirected
+Completed 404 Not Found in 15ms (Views: 4.2ms | ActiveRecord: 1.0ms | Allocations: 599)
+
+
+Started GET "/products/product_id" for ::1 at 2023-11-28 12:45:30 +0530
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"product_id"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:51:in `set_product'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :set_product rendered or redirected
+Completed 404 Not Found in 2ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 599)
+
+
+Started GET "/products/1" for ::1 at 2023-11-28 12:55:16 +0530
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:51:in `set_product'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (1.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 1], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `block in image_urls'
+[active_model_serializers] Rendered ProductSerializer with ActiveModelSerializers::Adapter::Attributes (22.49ms)
+Completed 200 OK in 147ms (Views: 22.3ms | ActiveRecord: 9.9ms | Allocations: 5087)
+
+
+Started GET "/products/1" for ::1 at 2023-11-28 12:56:38 +0530
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:51:in `set_product'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 1], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `block in image_urls'
+[active_model_serializers] Rendered ProductSerializer with ActiveModelSerializers::Adapter::Attributes (6.79ms)
+Completed 200 OK in 9ms (Views: 6.9ms | ActiveRecord: 0.8ms | Allocations: 2242)
+
+
+Started GET "/products/1" for ::1 at 2023-11-28 12:56:57 +0530
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:51:in `set_product'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 1], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `block in image_urls'
+[active_model_serializers] Rendered ProductSerializer with ActiveModelSerializers::Adapter::Attributes (5.54ms)
+Completed 200 OK in 8ms (Views: 5.5ms | ActiveRecord: 0.9ms | Allocations: 2242)
+
+
+Started GET "/products" for ::1 at 2023-11-28 16:53:10 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as */*
+  Parameters: {"name"=>"Product Na", "description"=>"Product Description", "price"=>"10.99", "images"=>[#<ActionDispatch::Http::UploadedFile:0x0000000111f7ca30 @tempfile=#<Tempfile:/var/folders/g2/yc978xgj5217w5yk09l8l_s80000gp/T/RackMultipart20231128-47848-2ruqa2.png>, @content_type="image/png", @original_filename="lunch-box.png", @headers="Content-Disposition: form-data; name=\"images[]\"; filename=\"lunch-box.png\"\r\nContent-Type: image/png\r\n">]}
+  [1m[36mProduct Load (1.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 1], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `block in image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 2], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `block in image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 3], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `block in image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 4], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `block in image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 5], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `block in image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 6], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (2.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `block in image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 7], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `block in image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 8], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `block in image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 9], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `block in image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 10], ["record_type", "Product"], ["name", "images"]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `image_urls'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/product_serializer.rb:7:in `block in image_urls'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (100.74ms)
+Completed 200 OK in 238ms (Views: 163.8ms | ActiveRecord: 44.7ms | Allocations: 67269)
+
+
